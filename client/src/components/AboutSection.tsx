@@ -3,7 +3,7 @@
    About: two-column layout, personal profile + education card
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { GraduationCap, Award, Users } from "lucide-react";
+import { GraduationCap, Award, Users, Trophy, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -177,6 +177,89 @@ export default function AboutSection() {
                       style={{ color: "oklch(0.52 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
                     >
                       DPS Dwarka · 4+ Years Leadership Growth
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Milestones & Certifications Bento */}
+          <div className="mt-20 lg:mt-24">
+            <div className="flex items-center gap-4 mb-8">
+              <span className="green-rule h-8" />
+              <div>
+                <h3
+                  className="font-['Fraunces'] font-bold leading-tight text-2xl"
+                  style={{ color: "oklch(0.18 0.015 65)" }}
+                >
+                  Milestones & Additional Education
+                </h3>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Card 1: Honors & Awards */}
+              <div className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] flex flex-col">
+                <div className="flex items-center gap-2.5 mb-5">
+                  <Trophy size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "oklch(0.18 0.015 65)" }}>Pitching & Honors</span>
+                </div>
+                <ul className="flex flex-col gap-3">
+                  {[
+                    "Finalist — Masters’ Union CEO Challenge S2",
+                    "Semi Finalist — Silicone Valley Challenge",
+                    "2nd Runner Up — Startup Weekend",
+                    "Runner Up — YEB Innovation Pitch",
+                    "Finalist — Mesa High School Pitch"
+                  ].map((award, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "oklch(0.38 0.10 155)" }} />
+                      <span className="text-sm" style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>{award}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Card 2: Certifications */}
+              <div className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] flex flex-col">
+                <div className="flex items-center gap-2.5 mb-5">
+                  <ShieldCheck size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "oklch(0.18 0.015 65)" }}>Certifications</span>
+                </div>
+                <ul className="flex flex-col gap-3">
+                  {[
+                    "Young Entrepreneurs Bootcamp",
+                    "Accenture NA — Product Design",
+                    "Python and AI Summer Camp",
+                    "Intro to UX Design",
+                    "On-Premise Sales Virtual Experience"
+                  ].map((cert, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "oklch(0.38 0.10 155)" }} />
+                      <span className="text-sm" style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>{cert}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Card 3: Additional Education */}
+              <div className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] flex flex-col md:col-span-2 lg:col-span-1">
+                <div className="flex items-center gap-2.5 mb-5">
+                  <Sparkles size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "oklch(0.18 0.015 65)" }}>More Background</span>
+                </div>
+                <div className="flex flex-col gap-5">
+                  <div>
+                    <div className="font-medium text-[0.95rem]" style={{ color: "oklch(0.18 0.015 65)" }}>buildspace</div>
+                    <div className="text-sm mt-0.5" style={{ color: "oklch(0.40 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>
+                      Nights & Weekends s5 · Jun 2024
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-[0.95rem]" style={{ color: "oklch(0.18 0.015 65)" }}>Delhi Public School, Dwarka</div>
+                    <div className="text-sm mt-0.5" style={{ color: "oklch(0.40 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>
+                      PCM + Economics · 2013 – 2025
                     </div>
                   </div>
                 </div>
