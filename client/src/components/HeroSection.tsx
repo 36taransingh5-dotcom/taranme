@@ -6,8 +6,7 @@
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Globe, Mail, ArrowDown, Palette } from "lucide-react";
 
-const HERO_IMAGE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663604994993/edvFmTWCitkDz4cU6bGtJf/hero-abstract-AKpxUy78NnZif9abd5A7Tn.webp";
+import HERO_IMAGE from "@/assets/profile.jpg";
 
 const words = ["Builder.", "Analyst.", "Developer."];
 
