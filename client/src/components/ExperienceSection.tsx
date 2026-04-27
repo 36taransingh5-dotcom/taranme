@@ -8,15 +8,15 @@ const experiences = [
   {
     role: "Software Developer Intern",
     company: "Film Finder",
-    companyNote: "Barclays Eagle Labs / Sky Accelerator backed",
+    companyNote: "Barclays Eagle Labs / Sky Accelerator / BEO F100 backed",
     period: "Mar 2026",
     type: "Internship",
     bullets: [
-      "Worked within a production codebase serving 80+ daily active users — developing awareness of how technical changes carry real operational risk and require careful validation before deployment.",
-      "Integrated third-party APIs and Firebase, gaining first-hand experience of data handling responsibilities and the importance of structured, auditable pipelines.",
-      "Followed agile workflows with peer code review and version control via Git/GitHub, understanding how process controls reduce the risk of error in software delivery.",
+      "Worked within a production codebase serving 80+ daily active users.",
+      "Led the migration of the core codebase from TypeScript to Swift/SwiftUI, completing the transition within the internship period.",
+      "Integrated Firebase and third-party APIs, building structured data pipelines from ingestion to rendered output."
     ],
-    tags: ["Firebase", "APIs", "Git/GitHub", "Agile"],
+    tags: ["Swift", "SwiftUI", "Firebase", "APIs"],
   },
   {
     role: "Business Analyst & Operations Support",

@@ -3,7 +3,7 @@
    Contact: clean CTA section + footer with links
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Mail, Github, Linkedin, Globe, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Github, Linkedin, Globe, MapPin, ArrowUpRight, Palette } from "lucide-react";
 
 export default function ContactSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -57,6 +57,14 @@ export default function ContactSection() {
                 >
                   <Mail size={15} />
                   tps1g25@soton.ac.uk
+                  <ArrowUpRight size={13} />
+                </a>
+                <a
+                  href="mailto:36taransingh5@gmail.com"
+                  className="inline-flex items-center gap-2 w-fit px-6 py-2.5 rounded-lg border border-[oklch(0.88_0.010_85)] text-[oklch(0.35_0.012_65)] font-medium text-sm hover:border-[oklch(0.38_0.10_155)] hover:text-[oklch(0.38_0.10_155)] transition-all duration-200"
+                >
+                  <Mail size={15} />
+                  36taransingh5@gmail.com
                   <ArrowUpRight size={13} />
                 </a>
               </div>
@@ -160,6 +168,40 @@ export default function ContactSection() {
                         style={{ color: "oklch(0.55 0.012 65)", fontFamily: "'Fira Code', monospace" }}
                       >
                         sotonhive.tech
+                      </div>
+                    </div>
+                    <ArrowUpRight size={13} className="ml-auto text-[oklch(0.75_0.012_65)] group-hover:text-[oklch(0.38_0.10_155)] transition-colors" />
+                  </a>
+
+                  <div
+                    className="h-px"
+                    style={{ background: "oklch(0.92 0.006 85)" }}
+                  />
+
+                  <a
+                    href="https://behance.net/techediting"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 group"
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ background: "oklch(0.93 0.03 155)" }}
+                    >
+                      <Palette size={16} style={{ color: "oklch(0.38 0.10 155)" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="text-sm font-medium group-hover:text-[oklch(0.38_0.10_155)] transition-colors"
+                        style={{ color: "oklch(0.18 0.015 65)", fontFamily: "'Outfit', sans-serif" }}
+                      >
+                        Behance
+                      </div>
+                      <div
+                        className="text-xs"
+                        style={{ color: "oklch(0.55 0.012 65)", fontFamily: "'Fira Code', monospace" }}
+                      >
+                        behance.net/techediting
                       </div>
                     </div>
                     <ArrowUpRight size={13} className="ml-auto text-[oklch(0.75_0.012_65)] group-hover:text-[oklch(0.38_0.10_155)] transition-colors" />

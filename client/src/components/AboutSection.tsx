@@ -36,29 +36,13 @@ export default function AboutSection() {
                 className="leading-relaxed text-[1.05rem]"
                 style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
               >
-                I'm a first-year Computer Science student at the University of
-                Southampton, currently on track for a First Class degree. I've
-                built and deployed real software systems, worked inside a
-                professional engineering team, and developed a practical
-                understanding of how technical decisions create operational risk.
+                I'm a first-year Computer Science student at the University of Southampton, currently on track for a First Class (70%+). Builder of real, deployed systems: a live iOS app at an accelerator-backed startup, a hackathon-winning circuit simulator, and a university discovery platform with real users.
               </p>
               <p
                 className="leading-relaxed text-[1.05rem]"
                 style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
               >
-                Detail-oriented and methodical by nature, I'm drawn to the
-                compliance and governance side of technology — how organisations
-                ensure their systems are secure, trustworthy, and accountable. I
-                believe that good engineering isn't just about making things work;
-                it's about making things work <em>safely</em> and <em>reliably</em>.
-              </p>
-              <p
-                className="leading-relaxed text-[1.05rem]"
-                style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
-              >
-                Outside of code, I'm passionate about cricket and IPL fantasy
-                analytics, technology policy, AI governance, and the intersection
-                of structured thinking with creative problem-solving.
+                Detail-oriented and methodical by nature, with a grounding in compliance, governance, security, and AI safety alongside full-stack engineering and AI-accelerated development workflows. Strong communicator with experience pitching to high-profile investors and consulting for real clients.
               </p>
 
               {/* Interests row */}
@@ -103,7 +87,7 @@ export default function AboutSection() {
                       Sep 2025 – Present · First Class (70%+)
                     </div>
                     <div className="mt-3 flex flex-wrap gap-1.5">
-                      {["Networks & Security", "Algorithmics", "Data Management", "Software Modelling"].map((mod) => (
+                      {["Programming I (Python, C)", "Programming II (Java)", "Algorithmics", "Data Management", "Computer Systems", "Networks & Security", "Software Modelling & Design", "Professional Development"].map((mod) => (
                         <span key={mod} className="tag-pill" style={{ fontSize: "0.65rem" }}>{mod}</span>
                       ))}
                     </div>

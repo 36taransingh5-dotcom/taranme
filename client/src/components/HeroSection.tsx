@@ -4,7 +4,7 @@
    Dot-grid background, vertical green rule, word-by-word fade-up
    ============================================================ */
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Globe, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Globe, Mail, ArrowDown, Palette } from "lucide-react";
 
 const HERO_IMAGE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663604994993/edvFmTWCitkDz4cU6bGtJf/hero-abstract-AKpxUy78NnZif9abd5A7Tn.webp";
@@ -137,6 +137,15 @@ export default function HeroSection() {
               >
                 <Globe size={15} />
                 sotonhive.tech
+              </a>
+              <a
+                href="https://behance.net/techediting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-[oklch(0.88_0.010_85)] text-sm font-medium text-[oklch(0.35_0.012_65)] hover:border-[oklch(0.38_0.10_155)] hover:text-[oklch(0.38_0.10_155)] transition-all duration-200 bg-white/60"
+              >
+                <Palette size={15} />
+                Behance
               </a>
               <a
                 href="mailto:tps1g25@soton.ac.uk"
