@@ -105,10 +105,10 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
                 color: "oklch(0.18 0.015 65)",
               }}
             >
-              "Good engineering isn't just about making things work—it's about
-              making them work{" "}
-              <span style={{ color: "oklch(0.38 0.10 155)" }}>safely</span> and{" "}
-              <span style={{ color: "oklch(0.38 0.10 155)" }}>reliably.</span>"
+              "Build{" "}
+              <span style={{ color: "oklch(0.38 0.10 155)" }}>robust systems.</span>{" "}
+              Craft{" "}
+              <span style={{ color: "oklch(0.38 0.10 155)" }}>elegant experiences.</span>"
             </p>
           </div>
 
