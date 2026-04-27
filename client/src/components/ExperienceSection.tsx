@@ -31,6 +31,44 @@ const experiences = [
     ],
     tags: ["Excel", "Data Reporting", "Operations", "Outreach"],
   },
+  {
+    role: "Graphic Designer",
+    company: "ThinkStartup",
+    companyNote: "Startup visual assets",
+    period: "Jul 2024 – Sep 2024",
+    type: "Contract",
+    bullets: [
+      "Designed visual assets and brand collateral for startup-focused campaigns, delivering 10+ design briefs in 3 months.",
+      "Created pitch deck visuals and social media templates used across multiple cohort startups.",
+      "Collaborated directly with founders to translate early-stage ideas into compelling visual identities."
+    ],
+    tags: ["Graphic Design", "Branding", "Pitch Decks"],
+  },
+  {
+    role: "Head of Graphic Design",
+    company: "Voice Your Vichaar",
+    companyNote: "Led rebranding",
+    period: "Jun 2023 – Mar 2024",
+    type: "Leadership",
+    bullets: [
+      "Scaled the visual identity of a youth-led platform, overseeing a design team and owning the full brand system.",
+      "Led comprehensive rebranding initiative as Head of Design, increasing visual consistency across all digital touchpoints.",
+      "Delivered 30+ social media assets and campaign materials over 10 months."
+    ],
+    tags: ["Brand Identity", "Design Leadership", "Digital Assets"],
+  },
+  {
+    role: "Graphic Designer",
+    company: "Social House Learning",
+    companyNote: "EdTech platform",
+    period: "Dec 2023 – Feb 2024",
+    type: "Internship",
+    bullets: [
+      "Produced educational content, graphics and digital assets for an EdTech platform serving student audiences across India.",
+      "Worked within strict brand guidelines while maintaining creative output across Instagram, pitch decks, and web."
+    ],
+    tags: ["EdTech", "Content Creation", "Brand Guidelines"],
+  },
 ];
 
 function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {

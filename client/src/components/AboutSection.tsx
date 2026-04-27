@@ -152,6 +152,35 @@ export default function AboutSection() {
                   </div>
                 </div>
               </div>
+
+              {/* High School Leadership card */}
+              <div
+                className="rounded-xl p-5 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)]"
+              >
+                <div className="flex items-start gap-3">
+                  <div
+                    className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ background: "oklch(0.93 0.03 155)" }}
+                  >
+                    <Users size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                  </div>
+                  <div>
+                    <div className="section-label mb-1">Previous Leadership</div>
+                    <div
+                      className="font-['Fraunces'] font-semibold leading-snug"
+                      style={{ color: "oklch(0.18 0.015 65)" }}
+                    >
+                      VP of Ecophoria & President of Environment Council
+                    </div>
+                    <div
+                      className="text-sm mt-0.5"
+                      style={{ color: "oklch(0.52 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                    >
+                      DPS Dwarka · 4+ Years Leadership Growth
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
