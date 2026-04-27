@@ -5,6 +5,8 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import { useState, useEffect } from "react";
+import PortalIntro from "./components/PortalIntro";
 
 function Router() {
   return (
@@ -17,12 +19,37 @@ function Router() {
 }
 
 function App() {
+  const [showIntro, setShowIntro] = useState(() => {
+    // Check if user has already seen the intro
+    if (typeof window !== "undefined") {
+      return !sessionStorage.getItem("portalIntroSeen");
+    }
+    return true;
+  });
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+    sessionStorage.setItem("portalIntroSeen", "true");
+    // Reset scroll position
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = "auto";
+    }
+  }, [showIntro]);
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router />
+          {showIntro ? (
+            <PortalIntro onComplete={handleIntroComplete} />
+          ) : (
+            <Router />
+          )}
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
