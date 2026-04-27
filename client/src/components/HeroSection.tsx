@@ -102,7 +102,7 @@ export default function HeroSection() {
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              I sit at the intersection of full-stack engineering, UI/UX design, and product strategy. From migrating core production codebases to leading brand transformations and winning pitch challenges, I build end-to-end digital experiences from the ground up.
+              I am a software engineer and builder focused on shipping real, production-ready applications. Whether I'm migrating core architectures to Swift, building structured data pipelines, or developing full-stack web platforms, I write robust code to solve hard engineering problems.
             </p>
 
             {/* Links row */}
