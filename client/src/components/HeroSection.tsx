@@ -102,7 +102,7 @@ export default function HeroSection() {
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              I am a software engineer and builder focused on shipping real, production-ready applications. Whether I'm migrating core architectures to Swift, building structured data pipelines, or developing full-stack web platforms, I write robust code to solve hard engineering problems.
+              I am a software engineer and builder focused on shipping real, production-ready applications. Whether I'm migrating core architectures to Python, building structured data pipelines, or developing full-stack web platforms, I write robust code to solve hard engineering problems.
             </p>
 
             {/* Links row */}
