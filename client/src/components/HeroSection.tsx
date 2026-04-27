@@ -102,10 +102,7 @@ export default function HeroSection() {
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              I build real software, think carefully about how systems fail, and
-              care deeply about the governance and safety of technology. Currently
-              on track for a First at Southampton — and always working on
-              something.
+              I sit at the intersection of full-stack engineering, UI/UX design, and product strategy. From migrating core production codebases to leading brand transformations and winning pitch challenges, I build end-to-end digital experiences from the ground up.
             </p>
 
             {/* Links row */}
