@@ -7,7 +7,7 @@ export default function NotFound() {
   const [, setLocation] = useLocation();
 
   const handleGoHome = () => {
-    setLocation("/");
+    window.location.href = import.meta.env.BASE_URL;
   };
 
   return (
