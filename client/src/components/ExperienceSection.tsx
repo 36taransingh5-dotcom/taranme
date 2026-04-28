@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN: Swiss Editorial / Structured Light
+   DESIGN: Swiss Editorial / Structured Light + Dark
    Experience: vertical timeline with green rule, role cards
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -85,16 +85,16 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
         <div className="flex md:flex-col md:items-end gap-3 md:gap-2 md:pt-1">
           <span
             className="font-['Fira_Code'] text-sm font-medium"
-            style={{ color: "oklch(0.38 0.10 155)" }}
+            style={{ color: "var(--primary)" }}
           >
             {exp.period}
           </span>
           <span
-            className="text-xs px-2 py-0.5 rounded-full border"
+            className="text-xs px-2 py-0.5 rounded-full"
             style={{
-              background: "oklch(0.93 0.03 155)",
-              color: "oklch(0.30 0.08 155)",
-              borderColor: "oklch(0.85 0.05 155)",
+              background: "var(--tag-bg)",
+              color: "var(--tag-text)",
+              border: "1px solid var(--tag-border)",
               fontFamily: "'Fira Code', monospace",
             }}
           >
@@ -104,26 +104,30 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
 
         {/* Right: Content */}
         <div
-          className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-white hover:shadow-md transition-shadow duration-300"
+          className="rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
+          style={{
+            border: "1px solid var(--border)",
+            background: "var(--surface-white)",
+          }}
         >
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <h3
                 className="font-['Fraunces'] font-semibold text-xl leading-snug"
-                style={{ color: "oklch(0.18 0.015 65)" }}
+                style={{ color: "var(--heading)" }}
               >
                 {exp.role}
               </h3>
               <div className="flex items-center gap-2 mt-1">
                 <span
                   className="text-sm font-medium"
-                  style={{ color: "oklch(0.38 0.10 155)", fontFamily: "'Outfit', sans-serif" }}
+                  style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
                 >
                   {exp.company}
                 </span>
                 <span
                   className="text-xs"
-                  style={{ color: "oklch(0.60 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                  style={{ color: "var(--body-xlight)", fontFamily: "'Outfit', sans-serif" }}
                 >
                   · {exp.companyNote}
                 </span>
@@ -136,11 +140,11 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
               <li key={i} className="flex items-start gap-2.5">
                 <span
                   className="flex-shrink-0 mt-2 w-1.5 h-1.5 rounded-full"
-                  style={{ background: "oklch(0.38 0.10 155)" }}
+                  style={{ background: "var(--primary)" }}
                 />
                 <span
                   className="text-sm leading-relaxed"
-                  style={{ color: "oklch(0.40 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                  style={{ color: "var(--body-light)", fontFamily: "'Outfit', sans-serif" }}
                 >
                   {b}
                 </span>
@@ -166,7 +170,7 @@ export default function ExperienceSection() {
     <section
       id="experience"
       className="py-24 lg:py-32"
-      style={{ background: "oklch(0.985 0.005 85)" }}
+      style={{ background: "var(--surface)" }}
     >
       <div className="container">
         {/* Section header */}
@@ -179,7 +183,7 @@ export default function ExperienceSection() {
             <div className="section-label mb-1">02 / Experience</div>
             <h2
               className="font-['Fraunces'] font-bold leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "oklch(0.18 0.015 65)" }}
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--heading)" }}
             >
               Where I've worked
             </h2>
@@ -191,7 +195,7 @@ export default function ExperienceSection() {
           {/* Vertical line */}
           <div
             className="absolute left-0 md:left-[188px] top-0 bottom-0 w-px hidden md:block"
-            style={{ background: "oklch(0.88 0.010 85)" }}
+            style={{ background: "var(--border)" }}
           />
 
           {experiences.map((exp, i) => (

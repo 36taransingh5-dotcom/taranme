@@ -1,8 +1,8 @@
 /* ============================================================
-   DESIGN: Minimal Professional Portal
+   DESIGN: Minimal Professional Portal + Dark
    - Clean fade transition from quote to portfolio
    - Subtle scroll indicator
-   - No flashy animations, just elegant simplicity
+   - Atmospheric dark mode with emerald glow
    ============================================================ */
 import { useEffect, useRef, useState } from "react";
 
@@ -79,8 +79,21 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
     <div
       ref={containerRef}
       className="relative w-full min-h-screen overflow-hidden"
-      style={{ background: "oklch(0.985 0.005 85)" }}
+      style={{ background: "var(--background)" }}
     >
+      {/* Atmospheric background glow — visible in dark mode */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% 40%, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 70%)",
+        }}
+      />
+      {/* Subtle dot-grid texture */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 dot-grid-bg opacity-40"
+      />
+
       {/* Quote Section */}
       <div
         ref={quoteRef}
@@ -93,7 +106,7 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
           {/* Vertical line accent */}
           <div
             className="w-0.5 h-12"
-            style={{ background: "oklch(0.38 0.10 155)" }}
+            style={{ background: "var(--primary)" }}
           />
 
           {/* Quote */}
@@ -102,20 +115,20 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
               className="font-['Fraunces'] font-light italic leading-tight"
               style={{
                 fontSize: "clamp(1.8rem, 5vw, 3.2rem)",
-                color: "oklch(0.18 0.015 65)",
+                color: "var(--heading)",
               }}
             >
               "Build{" "}
-              <span style={{ color: "oklch(0.38 0.10 155)" }}>robust systems.</span>{" "}
+              <span style={{ color: "var(--primary)" }}>robust systems.</span>{" "}
               Craft{" "}
-              <span style={{ color: "oklch(0.38 0.10 155)" }}>elegant experiences.</span>"
+              <span style={{ color: "var(--primary)" }}>elegant experiences.</span>"
             </p>
           </div>
 
           {/* Vertical line accent */}
           <div
             className="w-0.5 h-12"
-            style={{ background: "oklch(0.38 0.10 155)" }}
+            style={{ background: "var(--primary)" }}
           />
         </div>
       </div>
@@ -136,7 +149,7 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
             className="font-['Fraunces'] font-bold leading-tight"
             style={{
               fontSize: "clamp(2rem, 5vw, 4rem)",
-              color: "oklch(0.18 0.015 65)",
+              color: "var(--heading)",
             }}
           >
             Taran Pal Singh
@@ -144,7 +157,7 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
           <p
             className="mt-4 text-base"
             style={{
-              color: "oklch(0.38 0.10 155)",
+              color: "var(--primary)",
               fontFamily: "'Outfit', sans-serif",
             }}
           >
@@ -161,7 +174,7 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
         <span
           className="text-xs font-medium tracking-widest uppercase"
           style={{
-            color: "oklch(0.38 0.10 155)",
+            color: "var(--primary)",
             fontFamily: "'Fira Code', monospace",
           }}
         >
@@ -169,7 +182,7 @@ export default function PortalIntro({ onComplete }: PortalIntroProps) {
         </span>
         <div
           className="w-px h-6 animate-pulse"
-          style={{ background: "oklch(0.38 0.10 155)" }}
+          style={{ background: "var(--primary)" }}
         />
       </div>
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN: Swiss Editorial / Structured Light
+   DESIGN: Swiss Editorial / Structured Light + Dark
    Projects: horizontal card row with image, hover overlay reveal
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -57,10 +57,14 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   return (
     <div
       ref={ref}
-      className={`group relative rounded-2xl overflow-hidden border border-[oklch(0.88_0.010_85)] bg-white transition-all duration-700 hover:shadow-xl hover:-translate-y-1 ${
+      className={`group relative rounded-2xl overflow-hidden transition-all duration-700 hover:shadow-xl hover:-translate-y-1 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
-      style={{ transitionDelay: `${index * 120}ms` }}
+      style={{
+        transitionDelay: `${index * 120}ms`,
+        border: "1px solid var(--border)",
+        background: "var(--surface-white)",
+      }}
     >
       {/* Image */}
       <div className="relative overflow-hidden" style={{ height: "200px" }}>
@@ -76,7 +80,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         <div
           className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium"
           style={{
-            background: "oklch(0.38 0.10 155 / 0.9)",
+            background: "color-mix(in oklch, var(--primary) 90%, transparent)",
             color: "white",
             fontFamily: "'Fira Code', monospace",
             backdropFilter: "blur(4px)",
@@ -103,13 +107,13 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         <div>
           <h3
             className="font-['Fraunces'] font-semibold text-xl leading-snug"
-            style={{ color: "oklch(0.18 0.015 65)" }}
+            style={{ color: "var(--heading)" }}
           >
             {project.title}
           </h3>
           <p
             className="text-sm mt-0.5"
-            style={{ color: "oklch(0.38 0.10 155)", fontFamily: "'Outfit', sans-serif" }}
+            style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
           >
             {project.subtitle}
           </p>
@@ -117,7 +121,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
         <p
           className="text-sm leading-relaxed"
-          style={{ color: "oklch(0.42 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+          style={{ color: "var(--body-light)", fontFamily: "'Outfit', sans-serif" }}
         >
           {project.description}
         </p>
@@ -126,8 +130,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         <div
           className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium"
           style={{
-            background: "oklch(0.93 0.03 155)",
-            color: "oklch(0.30 0.08 155)",
+            background: "var(--icon-badge-bg)",
+            color: "var(--tag-text)",
             fontFamily: "'Fira Code', monospace",
           }}
         >
@@ -149,7 +153,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm font-medium mt-1 w-fit"
-            style={{ color: "oklch(0.38 0.10 155)", fontFamily: "'Outfit', sans-serif" }}
+            style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
           >
             <ExternalLink size={13} />
             Visit live site
@@ -164,7 +168,7 @@ export default function ProjectsSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="projects" className="py-24 lg:py-32 bg-white">
+    <section id="projects" className="py-24 lg:py-32" style={{ background: "var(--surface-white)" }}>
       <div className="container">
         {/* Section header */}
         <div
@@ -176,7 +180,7 @@ export default function ProjectsSection() {
             <div className="section-label mb-1">03 / Projects</div>
             <h2
               className="font-['Fraunces'] font-bold leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "oklch(0.18 0.015 65)" }}
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--heading)" }}
             >
               What I've built
             </h2>

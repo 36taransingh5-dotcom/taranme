@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark, .dark *));
 
 /* ============================================================
    DESIGN SYSTEM: Swiss Editorial / Structured Light
@@ -102,6 +102,105 @@
   --sidebar-accent-foreground: oklch(0.30 0.08 155);
   --sidebar-border: oklch(0.88 0.010 85);
   --sidebar-ring: oklch(0.38 0.10 155);
+
+  /* Component-level semantic tokens */
+  --heading: oklch(0.18 0.015 65);
+  --body: oklch(0.35 0.012 65);
+  --body-muted: oklch(0.52 0.012 65);
+  --body-light: oklch(0.45 0.012 65);
+  --body-xlight: oklch(0.60 0.012 65);
+  --surface: oklch(0.985 0.005 85);
+  --surface-card: oklch(0.975 0.006 85);
+  --surface-white: white;
+  --icon-badge-bg: oklch(0.93 0.03 155);
+  --tag-bg: oklch(0.93 0.03 155);
+  --tag-text: oklch(0.30 0.08 155);
+  --tag-border: oklch(0.85 0.05 155);
+  --divider: oklch(0.92 0.006 85);
+  --link-btn-bg: white / 0.6;
+  --dot-grid: oklch(0.75 0.04 155 / 0.4);
+  --hero-overlay: oklch(0.985 0.005 85 / 0.85);
+  --navbar-bg: oklch(0.985 0.005 85 / 0.92);
+}
+
+:root.dark {
+  /* Vivid emerald green — brighter and more saturated than light mode */
+  --primary: oklch(0.65 0.18 155);
+  --primary-foreground: oklch(0.12 0.02 155);
+
+  /* Rich dark backgrounds with subtle cool tint */
+  --background: oklch(0.11 0.015 270);
+  --foreground: oklch(0.93 0.005 90);
+
+  /* Elevated card surfaces */
+  --card: oklch(0.15 0.015 270);
+  --card-foreground: oklch(0.93 0.005 90);
+
+  --popover: oklch(0.15 0.015 270);
+  --popover-foreground: oklch(0.93 0.005 90);
+
+  /* Secondary: muted emerald */
+  --secondary: oklch(0.20 0.04 155);
+  --secondary-foreground: oklch(0.80 0.10 155);
+
+  --muted: oklch(0.18 0.01 270);
+  --muted-foreground: oklch(0.65 0.008 90);
+
+  /* Accent: soft emerald tint */
+  --accent: oklch(0.20 0.05 155);
+  --accent-foreground: oklch(0.80 0.10 155);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  /* Borders: subtle with emerald hint */
+  --border: oklch(0.22 0.015 270);
+  --input: oklch(0.22 0.015 270);
+  --ring: oklch(0.65 0.18 155);
+
+  --chart-1: oklch(0.65 0.18 155);
+  --chart-2: oklch(0.60 0.15 155);
+  --chart-3: oklch(0.55 0.12 155);
+  --chart-4: oklch(0.70 0.10 155);
+  --chart-5: oklch(0.80 0.06 155);
+
+  --sidebar: oklch(0.12 0.015 270);
+  --sidebar-foreground: oklch(0.93 0.005 90);
+  --sidebar-primary: oklch(0.65 0.18 155);
+  --sidebar-primary-foreground: oklch(0.12 0.02 155);
+  --sidebar-accent: oklch(0.20 0.05 155);
+  --sidebar-accent-foreground: oklch(0.80 0.10 155);
+  --sidebar-border: oklch(0.22 0.015 270);
+  --sidebar-ring: oklch(0.65 0.18 155);
+
+  /* Component-level semantic tokens */
+  --heading: oklch(0.95 0.005 90);
+  --body: oklch(0.78 0.008 90);
+  --body-muted: oklch(0.62 0.008 90);
+  --body-light: oklch(0.70 0.008 90);
+  --body-xlight: oklch(0.52 0.008 90);
+  --surface: oklch(0.11 0.015 270);
+  --surface-card: oklch(0.15 0.015 270);
+  --surface-white: oklch(0.15 0.015 270);
+  --icon-badge-bg: oklch(0.18 0.05 155);
+  --tag-bg: oklch(0.18 0.05 155);
+  --tag-text: oklch(0.75 0.12 155);
+  --tag-border: oklch(0.28 0.06 155);
+  --divider: oklch(0.20 0.012 270);
+  --link-btn-bg: oklch(0.15 0.015 270 / 0.8);
+  --dot-grid: oklch(0.65 0.10 155 / 0.15);
+  --hero-overlay: oklch(0.11 0.015 270 / 0.75);
+  --navbar-bg: oklch(0.11 0.015 270 / 0.88);
+}
+
+/* Force dark mode background on html & body — outside @layer for max priority */
+html.dark {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+html.dark body {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 @layer base {
@@ -111,6 +210,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Outfit', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   h1, h2, h3, h4 {
     font-family: 'Fraunces', serif;
@@ -164,14 +264,14 @@
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: oklch(0.38 0.10 155);
+    color: var(--primary);
   }
 
   /* Vertical green rule accent */
   .green-rule {
     display: block;
     width: 3px;
-    background: oklch(0.38 0.10 155);
+    background: var(--primary);
     border-radius: 2px;
   }
 
@@ -181,9 +281,9 @@
     font-size: 0.72rem;
     padding: 0.2rem 0.65rem;
     border-radius: 999px;
-    background: oklch(0.93 0.03 155);
-    color: oklch(0.30 0.08 155);
-    border: 1px solid oklch(0.85 0.05 155);
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--tag-border);
     white-space: nowrap;
   }
 
@@ -225,7 +325,7 @@
 
   /* Dot grid background */
   .dot-grid-bg {
-    background-image: radial-gradient(circle, oklch(0.75 0.04 155 / 0.4) 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--dot-grid) 1px, transparent 1px);
     background-size: 22px 22px;
   }
 }

@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN: Swiss Editorial / Structured Light
+   DESIGN: Swiss Editorial / Structured Light + Dark
    About: two-column layout, personal profile + education card
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -9,7 +9,7 @@ export default function AboutSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-white">
+    <section id="about" className="py-24 lg:py-32" style={{ background: "var(--surface-white)" }}>
       <div className="container">
         <div
           ref={ref}
@@ -22,7 +22,7 @@ export default function AboutSection() {
               <div className="section-label mb-1">01 / About</div>
               <h2
                 className="font-['Fraunces'] font-bold leading-tight"
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "oklch(0.18 0.015 65)" }}
+                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--heading)" }}
               >
                 Who I am
               </h2>
@@ -34,13 +34,13 @@ export default function AboutSection() {
             <div className="flex flex-col gap-6">
               <p
                 className="leading-relaxed text-[1.05rem]"
-                style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}
               >
                 I'm a first-year Computer Science student at the University of Southampton, currently on track for a First Class (70%+). Builder of real, deployed systems: a live iOS app at an accelerator-backed startup, a hackathon-winning circuit simulator, and a university discovery platform with real users.
               </p>
               <p
                 className="leading-relaxed text-[1.05rem]"
-                style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}
               >
                 Detail-oriented and methodical by nature, with a grounding in compliance, governance, security, and AI safety alongside full-stack engineering and AI-accelerated development workflows. Strong communicator with experience pitching to high-profile investors and consulting for real clients.
               </p>
@@ -57,32 +57,33 @@ export default function AboutSection() {
             <div className="flex flex-col gap-5">
               {/* Education card */}
               <div
-                className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)]"
+                className="rounded-xl p-6"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: "oklch(0.93 0.03 155)" }}
+                    style={{ background: "var(--icon-badge-bg)" }}
                   >
-                    <GraduationCap size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                    <GraduationCap size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
                     <div className="section-label mb-1">Education</div>
                     <div
                       className="font-['Fraunces'] font-semibold text-lg leading-snug"
-                      style={{ color: "oklch(0.18 0.015 65)" }}
+                      style={{ color: "var(--heading)" }}
                     >
                       BSc Computer Science
                     </div>
                     <div
                       className="text-sm mt-0.5"
-                      style={{ color: "oklch(0.38 0.10 155)", fontFamily: "'Outfit', sans-serif" }}
+                      style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
                     >
                       University of Southampton
                     </div>
                     <div
                       className="text-xs mt-1"
-                      style={{ color: "oklch(0.52 0.012 65)", fontFamily: "'Fira Code', monospace" }}
+                      style={{ color: "var(--body-muted)", fontFamily: "'Fira Code', monospace" }}
                     >
                       Sep 2025 – Present · First Class (70%+)
                     </div>
@@ -97,26 +98,27 @@ export default function AboutSection() {
 
               {/* Award card */}
               <div
-                className="rounded-xl p-5 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)]"
+                className="rounded-xl p-5"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: "oklch(0.93 0.03 155)" }}
+                    style={{ background: "var(--icon-badge-bg)" }}
                   >
-                    <Award size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                    <Award size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
                     <div className="section-label mb-1">Recent Award</div>
                     <div
                       className="font-['Fraunces'] font-semibold leading-snug"
-                      style={{ color: "oklch(0.18 0.015 65)" }}
+                      style={{ color: "var(--heading)" }}
                     >
                       Best Use of Gemini API
                     </div>
                     <div
                       className="text-sm mt-0.5"
-                      style={{ color: "oklch(0.52 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                      style={{ color: "var(--body-muted)", fontFamily: "'Outfit', sans-serif" }}
                     >
                       SotonHack 2026 · 15+ competing teams
                     </div>
@@ -126,26 +128,27 @@ export default function AboutSection() {
 
               {/* Consulting card */}
               <div
-                className="rounded-xl p-5 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)]"
+                className="rounded-xl p-5"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: "oklch(0.93 0.03 155)" }}
+                    style={{ background: "var(--icon-badge-bg)" }}
                   >
-                    <Users size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                    <Users size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
                     <div className="section-label mb-1">Extracurricular</div>
                     <div
                       className="font-['Fraunces'] font-semibold leading-snug"
-                      style={{ color: "oklch(0.18 0.015 65)" }}
+                      style={{ color: "var(--heading)" }}
                     >
                       Consultant, 180° Consulting
                     </div>
                     <div
                       className="text-sm mt-0.5"
-                      style={{ color: "oklch(0.52 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                      style={{ color: "var(--body-muted)", fontFamily: "'Outfit', sans-serif" }}
                     >
                       Live client engagement with OpenSight
                     </div>
@@ -155,26 +158,27 @@ export default function AboutSection() {
 
               {/* High School Leadership card */}
               <div
-                className="rounded-xl p-5 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)]"
+                className="rounded-xl p-5"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: "oklch(0.93 0.03 155)" }}
+                    style={{ background: "var(--icon-badge-bg)" }}
                   >
-                    <Users size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
+                    <Users size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
                     <div className="section-label mb-1">Previous Leadership</div>
                     <div
                       className="font-['Fraunces'] font-semibold leading-snug"
-                      style={{ color: "oklch(0.18 0.015 65)" }}
+                      style={{ color: "var(--heading)" }}
                     >
                       VP of Ecophoria & President of Environment Council
                     </div>
                     <div
                       className="text-sm mt-0.5"
-                      style={{ color: "oklch(0.52 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+                      style={{ color: "var(--body-muted)", fontFamily: "'Outfit', sans-serif" }}
                     >
                       DPS Dwarka · 4+ Years Leadership Growth
                     </div>
@@ -191,7 +195,7 @@ export default function AboutSection() {
               <div>
                 <h3
                   className="font-['Fraunces'] font-bold leading-tight text-2xl"
-                  style={{ color: "oklch(0.18 0.015 65)" }}
+                  style={{ color: "var(--heading)" }}
                 >
                   Milestones & Additional Education
                 </h3>
@@ -200,32 +204,38 @@ export default function AboutSection() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Card 1: Honors & Awards */}
-              <div className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] flex flex-col">
+              <div
+                className="rounded-xl p-6 flex flex-col"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
+              >
                 <div className="flex items-center gap-2.5 mb-5">
-                  <Trophy size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
-                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "oklch(0.18 0.015 65)" }}>Pitching & Honors</span>
+                  <Trophy size={18} style={{ color: "var(--primary)" }} />
+                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "var(--heading)" }}>Pitching & Honors</span>
                 </div>
                 <ul className="flex flex-col gap-3">
                   {[
-                    "Finalist — Masters’ Union CEO Challenge S2",
+                    "Finalist — Masters' Union CEO Challenge S2",
                     "Semi Finalist — Silicone Valley Challenge",
                     "2nd Runner Up — Startup Weekend",
                     "Runner Up — YEB Innovation Pitch",
                     "Finalist — Mesa High School Pitch"
                   ].map((award, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "oklch(0.38 0.10 155)" }} />
-                      <span className="text-sm" style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>{award}</span>
+                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "var(--primary)" }} />
+                      <span className="text-sm" style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}>{award}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Card 2: Certifications */}
-              <div className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] flex flex-col">
+              <div
+                className="rounded-xl p-6 flex flex-col"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
+              >
                 <div className="flex items-center gap-2.5 mb-5">
-                  <ShieldCheck size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
-                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "oklch(0.18 0.015 65)" }}>Certifications</span>
+                  <ShieldCheck size={18} style={{ color: "var(--primary)" }} />
+                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "var(--heading)" }}>Certifications</span>
                 </div>
                 <ul className="flex flex-col gap-3">
                   {[
@@ -236,29 +246,32 @@ export default function AboutSection() {
                     "On-Premise Sales Virtual Experience"
                   ].map((cert, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "oklch(0.38 0.10 155)" }} />
-                      <span className="text-sm" style={{ color: "oklch(0.35 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>{cert}</span>
+                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "var(--primary)" }} />
+                      <span className="text-sm" style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}>{cert}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Card 3: Additional Education */}
-              <div className="rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] flex flex-col md:col-span-2 lg:col-span-1">
+              <div
+                className="rounded-xl p-6 flex flex-col md:col-span-2 lg:col-span-1"
+                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
+              >
                 <div className="flex items-center gap-2.5 mb-5">
-                  <Sparkles size={18} style={{ color: "oklch(0.38 0.10 155)" }} />
-                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "oklch(0.18 0.015 65)" }}>More Background</span>
+                  <Sparkles size={18} style={{ color: "var(--primary)" }} />
+                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "var(--heading)" }}>More Background</span>
                 </div>
                 <div className="flex flex-col gap-5">
                   <div>
-                    <div className="font-medium text-[0.95rem]" style={{ color: "oklch(0.18 0.015 65)" }}>buildspace</div>
-                    <div className="text-sm mt-0.5" style={{ color: "oklch(0.40 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>
+                    <div className="font-medium text-[0.95rem]" style={{ color: "var(--heading)" }}>buildspace</div>
+                    <div className="text-sm mt-0.5" style={{ color: "var(--body-light)", fontFamily: "'Outfit', sans-serif" }}>
                       Nights & Weekends s5 · Jun 2024
                     </div>
                   </div>
                   <div>
-                    <div className="font-medium text-[0.95rem]" style={{ color: "oklch(0.18 0.015 65)" }}>Delhi Public School, Dwarka</div>
-                    <div className="text-sm mt-0.5" style={{ color: "oklch(0.40 0.012 65)", fontFamily: "'Outfit', sans-serif" }}>
+                    <div className="font-medium text-[0.95rem]" style={{ color: "var(--heading)" }}>Delhi Public School, Dwarka</div>
+                    <div className="text-sm mt-0.5" style={{ color: "var(--body-light)", fontFamily: "'Outfit', sans-serif" }}>
                       PCM + Economics · 2013 – 2025
                     </div>
                   </div>

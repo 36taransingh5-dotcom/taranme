@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN: Swiss Editorial / Structured Light
+   DESIGN: Swiss Editorial / Structured Light + Dark
    Skills: bento-style grid with category labels and tag pills
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -55,15 +55,20 @@ function SkillCard({ group, index }: { group: typeof skillGroups[0]; index: numb
   return (
     <div
       ref={ref}
-      className={`rounded-xl p-6 border border-[oklch(0.88_0.010_85)] bg-[oklch(0.985_0.005_85)] hover:shadow-md transition-all duration-500 ${
+      className={`rounded-xl p-6 hover:shadow-md transition-all duration-500 ${
         group.wide ? "md:col-span-2" : ""
       } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-      style={{ transitionDelay: `${index * 80}ms`, transitionProperty: "opacity, transform, box-shadow" }}
+      style={{
+        transitionDelay: `${index * 80}ms`,
+        transitionProperty: "opacity, transform, box-shadow",
+        border: "1px solid var(--border)",
+        background: "var(--surface)",
+      }}
     >
       <div className="flex items-center gap-3 mb-4">
         <div
           className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-          style={{ background: "oklch(0.93 0.03 155)", color: "oklch(0.38 0.10 155)" }}
+          style={{ background: "var(--icon-badge-bg)", color: "var(--primary)" }}
         >
           {group.icon}
         </div>
@@ -71,7 +76,7 @@ function SkillCard({ group, index }: { group: typeof skillGroups[0]; index: numb
           <div className="section-label">{group.label}</div>
           <div
             className="text-xs mt-0.5"
-            style={{ color: "oklch(0.55 0.012 65)", fontFamily: "'Outfit', sans-serif" }}
+            style={{ color: "var(--body-xlight)", fontFamily: "'Outfit', sans-serif" }}
           >
             {group.description}
           </div>
@@ -94,7 +99,7 @@ export default function SkillsSection() {
     <section
       id="skills"
       className="py-24 lg:py-32"
-      style={{ background: "oklch(0.985 0.005 85)" }}
+      style={{ background: "var(--surface)" }}
     >
       <div className="container">
         {/* Section header */}
@@ -107,7 +112,7 @@ export default function SkillsSection() {
             <div className="section-label mb-1">04 / Skills</div>
             <h2
               className="font-['Fraunces'] font-bold leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "oklch(0.18 0.015 65)" }}
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--heading)" }}
             >
               What I know
             </h2>
@@ -127,24 +132,25 @@ export default function SkillsSection() {
           className={`transition-all duration-700 ${certVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <div className="flex items-center gap-3 mb-6">
-            <Star size={16} style={{ color: "oklch(0.38 0.10 155)" }} />
+            <Star size={16} style={{ color: "var(--primary)" }} />
             <span className="section-label">Certifications</span>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
             {certifications.map((cert, i) => (
               <div
                 key={i}
-                className="rounded-lg p-4 border border-[oklch(0.88_0.010_85)] bg-white"
+                className="rounded-lg p-4"
+                style={{ border: "1px solid var(--border)", background: "var(--surface-white)" }}
               >
                 <div
                   className="font-medium text-sm leading-snug mb-1"
-                  style={{ color: "oklch(0.18 0.015 65)", fontFamily: "'Outfit', sans-serif" }}
+                  style={{ color: "var(--heading)", fontFamily: "'Outfit', sans-serif" }}
                 >
                   {cert.title}
                 </div>
                 <div
                   className="text-xs"
-                  style={{ color: "oklch(0.38 0.10 155)", fontFamily: "'Fira Code', monospace" }}
+                  style={{ color: "var(--primary)", fontFamily: "'Fira Code', monospace" }}
                 >
                   {cert.org} · {cert.year}
                 </div>

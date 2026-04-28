@@ -1,5 +1,5 @@
 /* ============================================================
-   DESIGN: Swiss Editorial / Structured Light
+   DESIGN: Swiss Editorial / Structured Light + Dark
    Hero: asymmetric 60/40 split, left-anchored text, right abstract visual
    Dot-grid background, vertical green rule, word-by-word fade-up
    ============================================================ */
@@ -29,13 +29,22 @@ export default function HeroSection() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden dot-grid-bg"
+      style={{ background: "var(--background)" }}
     >
       {/* Subtle warm overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 30% 50%, oklch(0.985 0.005 85 / 0.85) 0%, transparent 100%)",
+            "radial-gradient(ellipse 70% 60% at 30% 50%, var(--hero-overlay) 0%, transparent 100%)",
+        }}
+      />
+      {/* Atmospheric emerald glow for dark mode depth */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 70% 60%, color-mix(in oklch, var(--primary) 6%, transparent) 0%, transparent 70%)",
         }}
       />
 
@@ -45,7 +54,10 @@ export default function HeroSection() {
           <div className="flex flex-col gap-6">
             {/* Status badge */}
             <div className="animate-fade-up opacity-0 delay-100 flex items-center gap-2 w-fit">
-              <span className="w-2 h-2 rounded-full bg-[oklch(0.38_0.10_155)] animate-pulse" />
+              <span
+                className="w-2 h-2 rounded-full animate-pulse"
+                style={{ background: "var(--primary)" }}
+              />
               <span className="section-label">
                 First-year CS @ University of Southampton
               </span>
@@ -59,12 +71,12 @@ export default function HeroSection() {
                   className="animate-fade-up opacity-0 delay-200 font-['Fraunces'] font-bold leading-[1.05] tracking-tight"
                   style={{
                     fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
-                    color: "oklch(0.18 0.015 65)",
+                    color: "var(--heading)",
                   }}
                 >
                   Taran
                   <br />
-                  <span style={{ color: "oklch(0.38 0.10 155)" }}>Pal Singh</span>
+                  <span style={{ color: "var(--primary)" }}>Pal Singh</span>
                 </h1>
               </div>
             </div>
@@ -75,7 +87,7 @@ export default function HeroSection() {
                 className="font-['Fraunces'] font-light italic"
                 style={{
                   fontSize: "clamp(1.4rem, 3vw, 2rem)",
-                  color: "oklch(0.45 0.012 65)",
+                  color: "var(--body-light)",
                 }}
               >
                 I'm a
@@ -84,7 +96,7 @@ export default function HeroSection() {
                 className="font-['Fraunces'] font-semibold transition-all duration-300"
                 style={{
                   fontSize: "clamp(1.4rem, 3vw, 2rem)",
-                  color: "oklch(0.38 0.10 155)",
+                  color: "var(--primary)",
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateY(0)" : "translateY(-8px)",
                 }}
@@ -98,7 +110,7 @@ export default function HeroSection() {
               className="animate-fade-up opacity-0 delay-400 max-w-[520px] leading-relaxed"
               style={{
                 fontSize: "1.05rem",
-                color: "oklch(0.45 0.012 65)",
+                color: "var(--body-light)",
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
@@ -107,45 +119,35 @@ export default function HeroSection() {
 
             {/* Links row */}
             <div className="animate-fade-up opacity-0 delay-500 flex flex-wrap items-center gap-3 mt-2">
-              <a
-                href="https://github.com/taran-pal-singh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-[oklch(0.88_0.010_85)] text-sm font-medium text-[oklch(0.35_0.012_65)] hover:border-[oklch(0.38_0.10_155)] hover:text-[oklch(0.38_0.10_155)] transition-all duration-200 bg-white/60"
-              >
-                <Github size={15} />
-                GitHub
-              </a>
-              <a
-                href="https://linkedin.com/in/taran-pal-singh"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-[oklch(0.88_0.010_85)] text-sm font-medium text-[oklch(0.35_0.012_65)] hover:border-[oklch(0.38_0.10_155)] hover:text-[oklch(0.38_0.10_155)] transition-all duration-200 bg-white/60"
-              >
-                <Linkedin size={15} />
-                LinkedIn
-              </a>
-              <a
-                href="https://sotonhive.tech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-[oklch(0.88_0.010_85)] text-sm font-medium text-[oklch(0.35_0.012_65)] hover:border-[oklch(0.38_0.10_155)] hover:text-[oklch(0.38_0.10_155)] transition-all duration-200 bg-white/60"
-              >
-                <Globe size={15} />
-                sotonhive.tech
-              </a>
-              <a
-                href="https://behance.net/techediting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-md border border-[oklch(0.88_0.010_85)] text-sm font-medium text-[oklch(0.35_0.012_65)] hover:border-[oklch(0.38_0.10_155)] hover:text-[oklch(0.38_0.10_155)] transition-all duration-200 bg-white/60"
-              >
-                <Palette size={15} />
-                Behance
-              </a>
+              {[
+                { href: "https://github.com/taran-pal-singh", icon: <Github size={15} />, label: "GitHub" },
+                { href: "https://linkedin.com/in/taran-pal-singh", icon: <Linkedin size={15} />, label: "LinkedIn" },
+                { href: "https://sotonhive.tech", icon: <Globe size={15} />, label: "sotonhive.tech" },
+                { href: "https://behance.net/techediting", icon: <Palette size={15} />, label: "Behance" },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium transition-all duration-200"
+                  style={{
+                    border: "1px solid var(--border)",
+                    color: "var(--body)",
+                    background: "var(--link-btn-bg)",
+                  }}
+                >
+                  {link.icon}
+                  {link.label}
+                </a>
+              ))}
               <a
                 href="mailto:tps1g25@soton.ac.uk"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-md bg-[oklch(0.38_0.10_155)] text-[oklch(0.98_0.005_85)] text-sm font-medium hover:bg-[oklch(0.32_0.10_155)] transition-colors duration-200"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium transition-colors duration-200"
+                style={{
+                  background: "var(--primary)",
+                  color: "var(--primary-foreground)",
+                }}
               >
                 <Mail size={15} />
                 Email me
@@ -156,7 +158,8 @@ export default function HeroSection() {
             <div className="animate-fade-up opacity-0 delay-600 flex items-center gap-2 mt-4">
               <ArrowDown
                 size={14}
-                className="text-[oklch(0.38_0.10_155)] animate-bounce"
+                className="animate-bounce"
+                style={{ color: "var(--primary)" }}
               />
               <span className="section-label">Scroll to explore</span>
             </div>
@@ -167,8 +170,8 @@ export default function HeroSection() {
             <div className="relative w-full max-w-[400px]">
               {/* Decorative border frame */}
               <div
-                className="absolute -top-4 -right-4 w-full h-full rounded-xl border-2 border-[oklch(0.38_0.10_155/0.25)]"
-                style={{ zIndex: 0 }}
+                className="absolute -top-4 -right-4 w-full h-full rounded-xl"
+                style={{ zIndex: 0, border: "2px solid color-mix(in oklch, var(--primary) 25%, transparent)" }}
               />
               <img
                 src={HERO_IMAGE}
@@ -178,17 +181,24 @@ export default function HeroSection() {
               />
               {/* Floating stat card */}
               <div
-                className="absolute -bottom-6 -left-8 z-20 bg-white rounded-lg shadow-lg px-4 py-3 border border-[oklch(0.88_0.010_85)]"
-                style={{ minWidth: "160px" }}
+                className="absolute -bottom-6 -left-8 z-20 rounded-lg shadow-lg px-4 py-3"
+                style={{
+                  minWidth: "160px",
+                  background: "var(--surface-white)",
+                  border: "1px solid var(--border)",
+                }}
               >
                 <div className="section-label mb-1">Current GPA</div>
                 <div
                   className="font-['Fraunces'] font-bold text-2xl"
-                  style={{ color: "oklch(0.38 0.10 155)" }}
+                  style={{ color: "var(--primary)" }}
                 >
                   First Class
                 </div>
-                <div className="text-xs text-[oklch(0.52_0.012_65)] mt-0.5">
+                <div
+                  className="text-xs mt-0.5"
+                  style={{ color: "var(--body-muted)" }}
+                >
                   University of Southampton
                 </div>
               </div>
