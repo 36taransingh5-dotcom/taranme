@@ -114,13 +114,13 @@ export default function HeroSection() {
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              I am a software engineer and builder focused on shipping real, production-ready applications. Whether I'm migrating core architectures to Python, building structured data pipelines, or developing full-stack web platforms, I write robust code to solve hard engineering problems.
+              I am a software engineer and builder focused on shipping real, production-ready applications. Whether I'm migrating core architectures to Python, building structured data pipelines, or developing full-stack web platforms, I write robust code to solve hard engineering problems. I build AI-powered products independently and work across technical and non-technical teams. I've shipped a live iOS app at an accelerator-backed startup, won Best Use of Gemini API at SotonHack 2026, founded a deployed university platform, and consulted for a real client through 180 Degrees Consulting.
             </p>
 
             {/* Links row */}
             <div className="animate-fade-up opacity-0 delay-500 flex flex-wrap items-center gap-3 mt-2">
               {[
-                { href: "https://github.com/taran-pal-singh", icon: <Github size={15} />, label: "GitHub" },
+                { href: "https://github.com/36taransingh5-dotcom", icon: <Github size={15} />, label: "GitHub" },
                 { href: "https://linkedin.com/in/taran-pal-singh", icon: <Linkedin size={15} />, label: "LinkedIn" },
                 { href: "https://sotonhive.tech", icon: <Globe size={15} />, label: "sotonhive.tech" },
                 { href: "https://behance.net/techediting", icon: <Palette size={15} />, label: "Behance" },

@@ -8,16 +8,44 @@ import { Code2, Shield, BarChart3, Wrench, Brain, Star } from "lucide-react";
 const skillGroups = [
   {
     icon: <Code2 size={18} />,
-    label: "Technical",
+    label: "Languages & Core Tech",
     description: "Languages & frameworks I'm comfortable with",
-    skills: ["Python", "SQL", "Swift", "TypeScript", "Java", "C"],
+    skills: ["Python", "Swift", "SwiftUI", "TypeScript", "SQL", "C", "Java"],
     wide: false,
+  },
+  {
+    icon: <Brain size={18} />,
+    label: "AI & Engineering",
+    description: "AI development and engineering practices",
+    skills: ["Gemini API", "RAG", "LLM Prompting", "AI Safety", "TDD", "MVVM", "React/Next.js", "AI Safety Evaluation"],
+    wide: false,
+  },
+  {
+    icon: <Wrench size={18} />,
+    label: "Tools & Infrastructure",
+    description: "Development, collaboration, and automation tools",
+    skills: ["Firebase", "Git/GitHub", "Cursor", "n8n", "Xcode", "VS Code", "Notion"],
+    wide: false,
+  },
+  {
+    icon: <Star size={18} />,
+    label: "Design & Product",
+    description: "Creative direction and product thinking",
+    skills: ["Figma", "Graphic Design", "Rapid Prototyping", "Product Strategy"],
+    wide: false,
+  },
+  {
+    icon: <BarChart3 size={18} />,
+    label: "Business & Soft Skills",
+    description: "Commercial delivery and operations",
+    skills: ["Market Research", "Stakeholder Comm.", "Agile/Scrum", "Pitching to Investors", "Methodical", "Detail-focused", "Analytical Thinking", "Clear Written Communication", "Organised Under Pressure"],
+    wide: true,
   },
   {
     icon: <Shield size={18} />,
     label: "Security & Risk",
     description: "Governance, safety, and systems thinking",
-    skills: ["Networks & Security", "AI Safety Evaluation", "Data Pipeline Integrity", "Access Control Principles"],
+    skills: ["Networks & Security", "Data Pipeline Integrity", "Access Control Principles"],
     wide: false,
   },
   {
@@ -26,26 +54,14 @@ const skillGroups = [
     description: "Structured data and analytical output",
     skills: ["Excel (Advanced)", "SQL Databases", "Structured Reporting", "Process Documentation"],
     wide: false,
-  },
-  {
-    icon: <Wrench size={18} />,
-    label: "Tools & Workflow",
-    description: "Development and collaboration tools",
-    skills: ["Git / GitHub", "Firebase", "Notion", "VS Code", "Figma"],
-    wide: false,
-  },
-  {
-    icon: <Brain size={18} />,
-    label: "Soft Skills",
-    description: "How I think and work",
-    skills: ["Methodical", "Detail-focused", "Analytical Thinking", "Clear Written Communication", "Organised Under Pressure"],
-    wide: true,
-  },
+  }
 ];
 
 const certifications = [
+  { title: "Software Engineer at Start-Up", org: "Y Combinator", year: "2024" },
+  { title: "Young Entrepreneurs Bootcamp", org: "BITS Pilani", year: "2025" },
   { title: "Python & AI Summer Camp", org: "Rancho Labs", year: "2024" },
-  { title: "Accenture Product Design", org: "Accenture North America", year: "2023" },
+  { title: "Accenture Product Design", org: "Accenture", year: "2023" },
   { title: "Introduction to UX Design", org: "Coursera", year: "2023" },
 ];
 

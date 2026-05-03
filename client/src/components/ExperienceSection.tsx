@@ -6,17 +6,31 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
+    role: "Consultant",
+    company: "180 Degrees Consulting (UoS)",
+    companyNote: "World's largest student-run consultancy",
+    period: "2025 – Present",
+    type: "Consulting",
+    bullets: [
+      "Leading a live client engagement with OpenSight.",
+      "Providing strategic recommendations as part of a competitive, selected team."
+    ],
+    tags: ["Consulting", "Strategy", "Client Engagement"],
+  },
+  {
     role: "Software Developer Intern",
     company: "Film Finder",
-    companyNote: "Barclays Eagle Labs / Sky Accelerator / BEO F100 backed",
+    companyNote: "Barclays Eagle Labs / Sky Accelerator",
     period: "Mar 2026",
     type: "Internship",
     bullets: [
+      "Led the migration of the core codebase from TypeScript to Swift/SwiftUI on a live app with 80+ daily active users.",
+      "Integrated Firebase and third-party APIs, building structured data pipelines from ingestion to rendered output.",
+      "Worked within an agile workflow utilizing Git/GitHub version control, iterative delivery, and peer code review.",
       "Worked within a production codebase serving 80+ daily active users.",
-      "Led the migration of the core codebase from TypeScript to Swift/SwiftUI, completing the transition within the internship period.",
-      "Integrated Firebase and third-party APIs, building structured data pipelines from ingestion to rendered output."
+      "Led the migration of the core codebase from TypeScript to Swift/SwiftUI, completing the transition within the internship period."
     ],
-    tags: ["Swift", "SwiftUI", "Firebase", "APIs"],
+    tags: ["Swift", "SwiftUI", "Firebase", "MVVM", "APIs"],
   },
   {
     role: "Business Analyst & Operations Support",
@@ -47,15 +61,14 @@ const experiences = [
   {
     role: "Head of Graphic Design",
     company: "Voice Your Vichaar",
-    companyNote: "Led rebranding",
-    period: "Jun 2023 – Mar 2024",
+    companyNote: "Community Platform",
+    period: "2023 – 2024",
     type: "Leadership",
     bullets: [
-      "Scaled the visual identity of a youth-led platform, overseeing a design team and owning the full brand system.",
-      "Led comprehensive rebranding initiative as Head of Design, increasing visual consistency across all digital touchpoints.",
-      "Delivered 30+ social media assets and campaign materials over 10 months."
+      "Led visual identity and content strategy for a growing community platform.",
+      "Produced creative deliverables to brief, overseeing the full brand system."
     ],
-    tags: ["Brand Identity", "Design Leadership", "Digital Assets"],
+    tags: ["Brand Identity", "Design Leadership"],
   },
   {
     role: "Graphic Designer",
@@ -68,7 +81,7 @@ const experiences = [
       "Worked within strict brand guidelines while maintaining creative output across Instagram, pitch decks, and web."
     ],
     tags: ["EdTech", "Content Creation", "Brand Guidelines"],
-  },
+  }
 ];
 
 function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
@@ -80,7 +93,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
       className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="grid md:grid-cols-[200px_1fr] gap-6 lg:gap-10">
+      <div className="grid md:grid-cols-[200px_1fr] gap-6 md:gap-8">
         {/* Left: Date + type */}
         <div className="flex md:flex-col md:items-end gap-3 md:gap-2 md:pt-1">
           <span
@@ -192,9 +205,9 @@ export default function ExperienceSection() {
 
         {/* Timeline */}
         <div className="relative flex flex-col gap-8">
-          {/* Vertical line */}
+          {/* Vertical line centered in the gap */}
           <div
-            className="absolute left-0 md:left-[188px] top-0 bottom-0 w-px hidden md:block"
+            className="absolute left-0 md:left-[216px] top-0 bottom-0 w-px hidden md:block"
             style={{ background: "var(--border)" }}
           />
 
