@@ -87,11 +87,6 @@ export default function AboutSection() {
                     >
                       Sep 2025 – Present · First Class (70%+)
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {["Programming I (Python, C)", "Programming II (Java)", "Algorithmics", "Data Management", "Computer Systems", "Networks & Security", "Software Modelling & Design", "Professional Development"].map((mod) => (
-                        <span key={mod} className="tag-pill" style={{ fontSize: "0.65rem" }}>{mod}</span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
