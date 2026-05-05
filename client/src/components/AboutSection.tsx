@@ -85,7 +85,7 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              {/* Award card */}
+              {/* buildspace card */}
               <div
                 className="rounded-xl p-5"
                 style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
@@ -95,27 +95,33 @@ export default function AboutSection() {
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ background: "var(--icon-badge-bg)" }}
                   >
-                    <Award size={18} style={{ color: "var(--primary)" }} />
+                    <Sparkles size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
-                    <div className="section-label mb-1">Recent Award</div>
+                    <div className="section-label mb-1">Education</div>
                     <div
                       className="font-['Fraunces'] font-semibold leading-snug"
                       style={{ color: "var(--heading)" }}
                     >
-                      Best Use of Gemini API
+                      buildspace
                     </div>
                     <div
                       className="text-sm mt-0.5"
-                      style={{ color: "var(--body-muted)", fontFamily: "'Outfit', sans-serif" }}
+                      style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
                     >
-                      SotonHack 2026 · 15+ competing teams
+                      Nights & Weekends s5
+                    </div>
+                    <div
+                      className="text-xs mt-1"
+                      style={{ color: "var(--body-muted)", fontFamily: "'Fira Code', monospace" }}
+                    >
+                      Jun 2024
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Consulting card */}
+              {/* High School card */}
               <div
                 className="rounded-xl p-5"
                 style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
@@ -125,51 +131,27 @@ export default function AboutSection() {
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ background: "var(--icon-badge-bg)" }}
                   >
-                    <Users size={18} style={{ color: "var(--primary)" }} />
+                    <GraduationCap size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
-                    <div className="section-label mb-1">Extracurricular</div>
+                    <div className="section-label mb-1">Education</div>
                     <div
                       className="font-['Fraunces'] font-semibold leading-snug"
                       style={{ color: "var(--heading)" }}
                     >
-                      Consultant, 180° Consulting
+                      Delhi Public School, Dwarka
                     </div>
                     <div
                       className="text-sm mt-0.5"
-                      style={{ color: "var(--body-muted)", fontFamily: "'Outfit', sans-serif" }}
+                      style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
                     >
-                      Live client engagement with OpenSight
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* High School Leadership card */}
-              <div
-                className="rounded-xl p-5"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div className="flex items-start gap-3">
-                  <div
-                    className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: "var(--icon-badge-bg)" }}
-                  >
-                    <Users size={18} style={{ color: "var(--primary)" }} />
-                  </div>
-                  <div>
-                    <div className="section-label mb-1">Previous Leadership</div>
-                    <div
-                      className="font-['Fraunces'] font-semibold leading-snug"
-                      style={{ color: "var(--heading)" }}
-                    >
-                      VP of Ecophoria & President of Environment Council
+                      High School (PCM + Economics)
                     </div>
                     <div
-                      className="text-sm mt-0.5"
-                      style={{ color: "var(--body-muted)", fontFamily: "'Outfit', sans-serif" }}
+                      className="text-xs mt-1"
+                      style={{ color: "var(--body-muted)", fontFamily: "'Fira Code', monospace" }}
                     >
-                      DPS Dwarka · 4+ Years Leadership Growth
+                      2013 – 2025
                     </div>
                   </div>
                 </div>
@@ -191,7 +173,7 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {/* Card 1: Honors & Awards */}
               <div
                 className="rounded-xl p-6 flex flex-col"
@@ -242,30 +224,6 @@ export default function AboutSection() {
                 </ul>
               </div>
 
-              {/* Card 3: Additional Education */}
-              <div
-                className="rounded-xl p-6 flex flex-col md:col-span-2 lg:col-span-1"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div className="flex items-center gap-2.5 mb-5">
-                  <Sparkles size={18} style={{ color: "var(--primary)" }} />
-                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "var(--heading)" }}>More Background</span>
-                </div>
-                <div className="flex flex-col gap-5">
-                  <div>
-                    <div className="font-medium text-[0.95rem]" style={{ color: "var(--heading)" }}>buildspace</div>
-                    <div className="text-sm mt-0.5" style={{ color: "var(--body-light)", fontFamily: "'Outfit', sans-serif" }}>
-                      Nights & Weekends s5 · Jun 2024
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-[0.95rem]" style={{ color: "var(--heading)" }}>Delhi Public School, Dwarka</div>
-                    <div className="text-sm mt-0.5" style={{ color: "var(--body-light)", fontFamily: "'Outfit', sans-serif" }}>
-                      PCM + Economics · 2013 – 2025
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
