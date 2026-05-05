@@ -3,8 +3,9 @@
    Navbar: sticky top, blur backdrop, forest green active dot
    ============================================================ */
 import { useState, useEffect } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Play, Pause } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
+import { useAudio } from "../contexts/AudioContext";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [active, setActive] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { isPlaying, togglePlay } = useAudio();
 
   useEffect(() => {
     const onScroll = () => {
@@ -96,6 +98,21 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="hidden md:flex items-center gap-2">
+          {/* Music toggle */}
+          <button
+            onClick={togglePlay}
+            className="p-2 rounded-md transition-colors duration-200 border"
+            style={{
+              color: "var(--primary)",
+              borderColor: "var(--border)",
+              background: "var(--surface-card)",
+            }}
+            aria-label={isPlaying ? "Pause music" : "Play music"}
+            title={isPlaying ? "Pause music" : "Play music"}
+          >
+            {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+          </button>
+
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
@@ -125,6 +142,16 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <div className="md:hidden flex items-center gap-2">
+          {/* Mobile music toggle */}
+          <button
+            onClick={togglePlay}
+            className="p-2 rounded-md transition-colors duration-200"
+            style={{ color: "var(--primary)" }}
+            aria-label={isPlaying ? "Pause music" : "Play music"}
+          >
+            {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+          </button>
+
           {/* Mobile theme toggle */}
           <button
             onClick={toggleTheme}

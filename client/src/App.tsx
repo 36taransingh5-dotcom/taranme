@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AudioProvider } from "./contexts/AudioContext";
 import Home from "./pages/Home";
 import { useState, useEffect } from "react";
 import PortalIntro from "./components/PortalIntro";
@@ -47,14 +48,16 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light" switchable>
-        <TooltipProvider>
-          <Toaster />
-          {showIntro ? (
-            <PortalIntro onComplete={handleIntroComplete} />
-          ) : (
-            <Router />
-          )}
-        </TooltipProvider>
+        <AudioProvider>
+          <TooltipProvider>
+            <Toaster />
+            {showIntro ? (
+              <PortalIntro onComplete={handleIntroComplete} />
+            ) : (
+              <Router />
+            )}
+          </TooltipProvider>
+        </AudioProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

@@ -4,7 +4,8 @@
    Dot-grid background, vertical green rule, word-by-word fade-up
    ============================================================ */
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Globe, Mail, ArrowDown, Palette } from "lucide-react";
+import { Github, Linkedin, Globe, Mail, ArrowDown, Palette, Play, Pause } from "lucide-react";
+import { useAudio } from "../contexts/AudioContext";
 
 import HERO_IMAGE from "@/assets/profile.jpg";
 
@@ -13,6 +14,7 @@ const words = ["Builder.", "Analyst.", "Developer."];
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
+  const { isPlaying, togglePlay, currentTime, duration, seek } = useAudio();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -114,7 +116,10 @@ export default function HeroSection() {
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              I am a software engineer and builder focused on shipping real, production-ready applications. Whether I'm migrating core architectures to Python, building structured data pipelines, or developing full-stack web platforms, I write robust code to solve hard engineering problems. I build AI-powered products independently and work across technical and non-technical teams. I've shipped a live iOS app at an accelerator-backed startup, won Best Use of Gemini API at SotonHack 2026, founded a deployed university platform, and consulted for a real client through 180 Degrees Consulting.
+              Software engineer focused on shipping robust, production-ready applications. Whether I'm architecting scalable backend systems or building AI-powered platforms, I write clean, resilient code to solve hard engineering problems.{" "}
+              <span className="font-light opacity-75">
+                And unlike most engineers I can actually design.
+              </span>
             </p>
 
             {/* Links row */}
@@ -152,6 +157,65 @@ export default function HeroSection() {
                 <Mail size={15} />
                 Email me
               </a>
+            </div>
+
+            {/* Minimal Audio Player */}
+            <div className="animate-fade-up opacity-0 delay-500 mt-2 flex flex-col gap-2 w-full max-w-[400px]">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={togglePlay}
+                  className="w-10 h-10 flex flex-shrink-0 items-center justify-center rounded-full transition-colors border shadow-sm"
+                  style={{
+                    color: isPlaying ? "var(--primary-foreground)" : "var(--primary)",
+                    borderColor: "var(--primary)",
+                    background: isPlaying ? "var(--primary)" : "transparent",
+                  }}
+                >
+                  {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+                </button>
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium tracking-tight" style={{ color: "var(--heading)" }}>
+                    I Thought The Future Would Be Cooler
+                  </span>
+                  <span className="text-xs" style={{ color: "var(--body-muted)" }}>
+                    YACHT
+                  </span>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3 mt-1">
+                <span className="text-xs font-mono w-10 text-right" style={{ color: "var(--body-muted)" }}>
+                  {Math.floor(currentTime / 60)}:{(Math.floor(currentTime % 60)).toString().padStart(2, '0')}
+                </span>
+                <div 
+                  className="flex-1 h-1 rounded-full relative cursor-pointer group"
+                  style={{ background: "var(--border)" }}
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const pos = (e.clientX - rect.left) / rect.width;
+                    seek(pos * duration);
+                  }}
+                >
+                  <div 
+                    className="absolute left-0 top-0 h-full rounded-full pointer-events-none transition-all duration-100" 
+                    style={{ 
+                      width: `${duration ? (currentTime / duration) * 100 : 0}%`,
+                      background: "var(--primary)" 
+                    }}
+                  />
+                  <div 
+                    className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm"
+                    style={{
+                      left: `calc(${duration ? (currentTime / duration) * 100 : 0}% - 6px)`,
+                      borderColor: "var(--primary)",
+                      borderWidth: "1px"
+                    }}
+                  />
+                </div>
+                <span className="text-xs font-mono w-10" style={{ color: "var(--body-muted)" }}>
+                  {duration ? `${Math.floor(duration / 60)}:${(Math.floor(duration % 60)).toString().padStart(2, '0')}` : "0:00"}
+                </span>
+              </div>
             </div>
 
             {/* Scroll cue */}
