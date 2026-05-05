@@ -49,12 +49,13 @@ export default function AboutSection() {
 
             {/* Right: Education + highlights */}
             <div className="flex flex-col gap-5">
-              {/* Education card */}
+              {/* Unified Education Card */}
               <div
-                className="rounded-xl p-6"
+                className="rounded-xl p-6 flex flex-col gap-6"
                 style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
               >
-                <div className="flex items-start gap-3">
+                {/* Southampton */}
+                <div className="flex items-start gap-4">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ background: "var(--icon-badge-bg)" }}
@@ -83,14 +84,11 @@ export default function AboutSection() {
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* buildspace card */}
-              <div
-                className="rounded-xl p-5"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div className="flex items-start gap-3">
+                <div className="w-full h-px opacity-60" style={{ background: "var(--border)" }} />
+
+                {/* buildspace */}
+                <div className="flex items-start gap-4">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ background: "var(--icon-badge-bg)" }}
@@ -98,18 +96,18 @@ export default function AboutSection() {
                     <Sparkles size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
-                    <div className="section-label mb-1">Education</div>
+                    <div className="section-label mb-1">Accelerator</div>
                     <div
-                      className="font-['Fraunces'] font-semibold leading-snug"
+                      className="font-['Fraunces'] font-semibold text-lg leading-snug"
                       style={{ color: "var(--heading)" }}
                     >
-                      buildspace
+                      Nights & Weekends s5
                     </div>
                     <div
                       className="text-sm mt-0.5"
                       style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
                     >
-                      Nights & Weekends s5
+                      buildspace
                     </div>
                     <div
                       className="text-xs mt-1"
@@ -119,14 +117,11 @@ export default function AboutSection() {
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* High School card */}
-              <div
-                className="rounded-xl p-5"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div className="flex items-start gap-3">
+                <div className="w-full h-px opacity-60" style={{ background: "var(--border)" }} />
+
+                {/* High School */}
+                <div className="flex items-start gap-4">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ background: "var(--icon-badge-bg)" }}
@@ -134,9 +129,9 @@ export default function AboutSection() {
                     <GraduationCap size={18} style={{ color: "var(--primary)" }} />
                   </div>
                   <div>
-                    <div className="section-label mb-1">Education</div>
+                    <div className="section-label mb-1">High School</div>
                     <div
-                      className="font-['Fraunces'] font-semibold leading-snug"
+                      className="font-['Fraunces'] font-semibold text-lg leading-snug"
                       style={{ color: "var(--heading)" }}
                     >
                       Delhi Public School, Dwarka
@@ -145,7 +140,7 @@ export default function AboutSection() {
                       className="text-sm mt-0.5"
                       style={{ color: "var(--primary)", fontFamily: "'Outfit', sans-serif" }}
                     >
-                      High School (PCM + Economics)
+                      PCM + Economics
                     </div>
                     <div
                       className="text-xs mt-1"
