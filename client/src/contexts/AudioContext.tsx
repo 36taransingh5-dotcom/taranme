@@ -17,7 +17,9 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio("/bg-music.mp3");
+    const baseUrl = import.meta.env.BASE_URL || "/";
+    const audioPath = baseUrl.endsWith("/") ? `${baseUrl}bg-music.mp3` : `${baseUrl}/bg-music.mp3`;
+    audioRef.current = new Audio(audioPath);
     audioRef.current.loop = true;
 
     const updateTime = () => setCurrentTime(audioRef.current?.currentTime || 0);
