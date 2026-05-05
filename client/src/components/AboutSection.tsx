@@ -45,12 +45,6 @@ export default function AboutSection() {
                 Detail-oriented and methodical by nature, with a grounding in compliance, governance, security, and AI safety alongside full-stack engineering and AI-accelerated development workflows. Strong communicator with experience pitching to high-profile investors and consulting for real clients.
               </p>
 
-              {/* Interests row */}
-              <div className="flex flex-wrap gap-2 mt-2">
-                {["AI Governance", "Technology Policy", "Cricket Analytics", "AI Safety", "Systems Security"].map((interest) => (
-                  <span key={interest} className="tag-pill">{interest}</span>
-                ))}
-              </div>
             </div>
 
             {/* Right: Education + highlights */}
