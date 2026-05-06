@@ -220,7 +220,7 @@ function ProjectRow({
               <line x1="3" y1="9" x2="15" y2="9" />
             </svg>
           </div>
-        </div>
+        </button>
 
         {/* ── Expandable Content ── */}
         <div
