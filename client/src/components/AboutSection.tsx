@@ -163,7 +163,7 @@ export default function AboutSection() {
                   className="font-['Fraunces'] font-bold leading-tight text-2xl"
                   style={{ color: "var(--heading)" }}
                 >
-                  Milestones & Additional Education
+                  Honors & Certifications
                 </h3>
               </div>
             </div>
