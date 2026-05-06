@@ -17,23 +17,23 @@ export default function ContactSection() {
             ref={ref}
             className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            {/* Section header */}
-            <div className="flex items-center gap-4 mb-14">
-              <span className="green-rule h-8" />
-              <div>
-                <div className="section-label mb-1">05 / Contact</div>
-                <h2
-                  className="font-['Fraunces'] font-bold leading-tight"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--heading)" }}
-                >
-                  Let's talk
-                </h2>
-              </div>
-            </div>
-
             <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-start">
-              {/* Left: CTA text */}
+              {/* Left: heading + CTA text */}
               <div className="flex flex-col gap-6">
+                {/* Section header */}
+                <div className="flex items-center gap-4">
+                  <span className="green-rule h-8" />
+                  <div>
+                    <div className="section-label mb-1">05 / Contact</div>
+                    <h2
+                      className="font-['Fraunces'] font-bold leading-tight"
+                      style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--heading)" }}
+                    >
+                      Let's talk
+                    </h2>
+                  </div>
+                </div>
+
                 <p
                   className="text-[1.1rem] leading-relaxed max-w-[520px]"
                   style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}
