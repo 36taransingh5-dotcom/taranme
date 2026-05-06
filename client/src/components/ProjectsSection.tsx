@@ -46,7 +46,7 @@ const projects = [
     period: "Apr 2026",
     image: GW_IMG,
     badge: { icon: <Trophy size={12} />, label: "Hackathon Winner" },
-    link: null,
+    link: "https://devpost.com/software/groundwire-circuits-as-a-quest",
     description:
       "Built a structured data pipeline under time pressure — parsing unstructured input, applying deterministic logic (Kirchhoff's laws), and generating a validated output. Winner of Best Use of Gemini API at SotonHack 2026.",
     tags: ["Gemini API", "Python", "Data Pipeline", "SotonHack 2026"],
@@ -237,16 +237,16 @@ function ProjectRow({
           }}
         >
           <div className="overflow-hidden">
-            <div className="px-5 sm:px-8 pb-6 sm:pb-8 pt-2">
+            <div className="px-5 sm:px-8 pb-4 sm:pb-5 pt-1">
               {/* Thin divider */}
               <div
-                className="w-full h-px mb-6"
+                className="w-full h-px mb-4"
                 style={{ background: "var(--divider)" }}
               />
 
-              <div className="grid md:grid-cols-[1fr_1.2fr] gap-6 lg:gap-8">
+              <div className="grid md:grid-cols-[1fr_1.4fr] gap-4 lg:gap-6">
                 {/* Image */}
-                <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden">
+                <div className="relative w-full aspect-[16/8] rounded-lg overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -266,9 +266,9 @@ function ProjectRow({
                 </div>
 
                 {/* Content text */}
-                <div className="flex flex-col gap-4 justify-center">
+                <div className="flex flex-col gap-3 justify-center">
                   <p
-                    className="text-sm lg:text-base leading-relaxed"
+                    className="text-xs leading-relaxed"
                     style={{
                       color: "var(--body-light)",
                       fontFamily: "'Outfit', sans-serif",
