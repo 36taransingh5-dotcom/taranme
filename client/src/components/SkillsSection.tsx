@@ -3,7 +3,7 @@
    Skills: bento-style grid with category labels and tag pills
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Code2, Shield, BarChart3, Wrench, Brain, Star } from "lucide-react";
+import { Code2, Shield, BarChart3, Wrench, Brain, Star, Trophy } from "lucide-react";
 
 const skillGroups = [
   {
@@ -65,6 +65,15 @@ const certifications = [
   { title: "Introduction to UX Design", org: "Coursera", year: "2023" },
 ];
 
+const awards = [
+  { title: "£100 Grant", org: "University of Southampton", year: "2025" },
+  { title: "Finalist", org: "Masters' Union CEO Challenge S2", year: "2024" },
+  { title: "Semi Finalist", org: "Silicone Valley Challenge", year: "2024" },
+  { title: "2nd Runner Up", org: "Startup Weekend", year: "2023" },
+  { title: "Runner Up", org: "YEB Innovation Pitch · BITS Pilani", year: "2023" },
+  { title: "Finalist", org: "Mesa High School Pitch", year: "2023" },
+];
+
 function SkillCard({ group, index }: { group: typeof skillGroups[0]; index: number }) {
   const { ref, isVisible } = useScrollReveal();
 
@@ -110,6 +119,7 @@ function SkillCard({ group, index }: { group: typeof skillGroups[0]; index: numb
 export default function SkillsSection() {
   const { ref, isVisible } = useScrollReveal();
   const { ref: certRef, isVisible: certVisible } = useScrollReveal();
+  const { ref: awardsRef, isVisible: awardsVisible } = useScrollReveal();
 
   return (
     <section
@@ -169,6 +179,39 @@ export default function SkillsSection() {
                   style={{ color: "var(--primary)", fontFamily: "'Fira Code', monospace" }}
                 >
                   {cert.org} · {cert.year}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Honors & Awards */}
+        <div
+          ref={awardsRef}
+          className={`mt-10 transition-all duration-700 ${awardsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Trophy size={16} style={{ color: "var(--primary)" }} />
+            <span className="section-label">Honors & Awards</span>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {awards.map((award, i) => (
+              <div
+                key={i}
+                className="rounded-lg p-4"
+                style={{ border: "1px solid var(--border)", background: "var(--surface-white)" }}
+              >
+                <div
+                  className="font-medium text-sm leading-snug mb-1"
+                  style={{ color: "var(--heading)", fontFamily: "'Outfit', sans-serif" }}
+                >
+                  {award.title}
+                </div>
+                <div
+                  className="text-xs"
+                  style={{ color: "var(--primary)", fontFamily: "'Fira Code', monospace" }}
+                >
+                  {award.org} · {award.year}
                 </div>
               </div>
             ))}

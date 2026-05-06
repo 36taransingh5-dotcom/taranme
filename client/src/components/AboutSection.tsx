@@ -3,7 +3,7 @@
    About: two-column layout, personal profile + education card
    ============================================================ */
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { GraduationCap, Award, Users, Trophy, ShieldCheck, Sparkles } from "lucide-react";
+import { GraduationCap, Sparkles } from "lucide-react";
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -154,73 +154,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Milestones & Certifications Bento */}
-          <div className="mt-20 lg:mt-24">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="green-rule h-8" />
-              <div>
-                <h3
-                  className="font-['Fraunces'] font-bold leading-tight text-2xl"
-                  style={{ color: "var(--heading)" }}
-                >
-                  Honors & Certifications
-                </h3>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Card 1: Honors & Awards */}
-              <div
-                className="rounded-xl p-6 flex flex-col"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div className="flex items-center gap-2.5 mb-5">
-                  <Trophy size={18} style={{ color: "var(--primary)" }} />
-                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "var(--heading)" }}>Pitching & Honors</span>
-                </div>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    "Finalist — Masters' Union CEO Challenge S2",
-                    "Semi Finalist — Silicone Valley Challenge",
-                    "2nd Runner Up — Startup Weekend",
-                    "Runner Up — YEB Innovation Pitch",
-                    "Finalist — Mesa High School Pitch"
-                  ].map((award, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "var(--primary)" }} />
-                      <span className="text-sm" style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}>{award}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Card 2: Certifications */}
-              <div
-                className="rounded-xl p-6 flex flex-col"
-                style={{ border: "1px solid var(--border)", background: "var(--surface)" }}
-              >
-                <div className="flex items-center gap-2.5 mb-5">
-                  <ShieldCheck size={18} style={{ color: "var(--primary)" }} />
-                  <span className="font-['Fraunces'] font-semibold text-lg" style={{ color: "var(--heading)" }}>Certifications</span>
-                </div>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    "Young Entrepreneurs Bootcamp",
-                    "Accenture North America — Product Design",
-                    "Python and AI Summer Camp",
-                    "Intro to UX Design",
-                    "On-Premise Sales Virtual Experience"
-                  ].map((cert, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "var(--primary)" }} />
-                      <span className="text-sm" style={{ color: "var(--body)", fontFamily: "'Outfit', sans-serif" }}>{cert}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
-          </div>
         </div>
       </div>
     </section>
