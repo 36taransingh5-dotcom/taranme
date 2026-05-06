@@ -179,6 +179,25 @@ function ProjectRow({
             {project.badge.label}
           </div>
 
+          {/* Visit live site — visible on collapsed card if link exists */}
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium flex-shrink-0 transition-all duration-200"
+              style={{
+                background: "var(--primary)",
+                color: "var(--primary-foreground)",
+                fontFamily: "'Outfit', sans-serif",
+              }}
+            >
+              <ArrowUpRight size={12} />
+              Live site
+            </a>
+          )}
+
           {/* Toggle indicator */}
           <div
             className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500"

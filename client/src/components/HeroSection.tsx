@@ -127,7 +127,6 @@ export default function HeroSection() {
               {[
                 { href: "https://github.com/36taransingh5-dotcom", icon: <Github size={15} />, label: "GitHub" },
                 { href: "https://linkedin.com/in/taran-pal-singh", icon: <Linkedin size={15} />, label: "LinkedIn" },
-                { href: "https://sotonhive.tech", icon: <Globe size={15} />, label: "sotonhive.tech" },
                 { href: "https://behance.net/techediting", icon: <Palette size={15} />, label: "Behance" },
               ].map((link) => (
                 <a
