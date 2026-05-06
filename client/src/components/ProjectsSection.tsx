@@ -70,14 +70,12 @@ function ProjectRow({
   project,
   index,
   isOpen,
-  onOpen,
-  onClose,
+  onToggle,
 }: {
   project: (typeof projects)[0];
   index: number;
   isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
+  onToggle: () => void;
 }) {
   const { ref, isVisible } = useScrollReveal();
   const num = String(index + 1).padStart(2, "0");
@@ -89,8 +87,6 @@ function ProjectRow({
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
-      onMouseEnter={onOpen}
-      onMouseLeave={onClose}
     >
       <div
         className="relative overflow-hidden rounded-xl transition-all duration-500"
@@ -116,7 +112,8 @@ function ProjectRow({
         />
 
         {/* ── Header Row ── */}
-        <div
+        <button
+          onClick={onToggle}
           className="w-full flex items-center gap-4 sm:gap-6 px-5 sm:px-8 py-5 sm:py-6 text-left transition-colors duration-300 group/btn"
           style={{
             background: "transparent",
@@ -364,13 +361,12 @@ export default function ProjectsSection() {
         {/* Accordion rows */}
         <div className="flex flex-col gap-3">
           {projects.map((project, i) => (
-          <ProjectRow
+            <ProjectRow
               key={i}
               project={project}
               index={i}
               isOpen={openIndex === i}
-              onOpen={() => setOpenIndex(i)}
-              onClose={() => setOpenIndex(null)}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
             />
           ))}
         </div>
