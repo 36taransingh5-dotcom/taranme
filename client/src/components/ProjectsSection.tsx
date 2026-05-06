@@ -165,40 +165,36 @@ function ProjectRow({
             {project.period}
           </div>
 
-          {/* Badge pill */}
-          <div
-            className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium flex-shrink-0 transition-all duration-300"
-            style={{
-              background: isOpen
-                ? "var(--primary)"
-                : "var(--icon-badge-bg)",
-              color: isOpen
-                ? "var(--primary-foreground)"
-                : "var(--tag-text)",
-              fontFamily: "'Fira Code', monospace",
-            }}
-          >
-            {project.badge.icon}
-            {project.badge.label}
-          </div>
-
-          {/* Visit live site — visible on collapsed card if link exists */}
-          {project.link && (
+          {/* Badge pill — clickable link if project has a URL */}
+          {project.link ? (
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium flex-shrink-0 transition-all duration-200"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium flex-shrink-0 transition-all duration-300"
               style={{
-                background: "var(--primary)",
-                color: "var(--primary-foreground)",
-                fontFamily: "'Outfit', sans-serif",
+                background: isOpen ? "var(--primary)" : "var(--icon-badge-bg)",
+                color: isOpen ? "var(--primary-foreground)" : "var(--tag-text)",
+                fontFamily: "'Fira Code', monospace",
               }}
             >
-              <ArrowUpRight size={12} />
-              Live site
+              {project.badge.icon}
+              {project.badge.label}
+              <ArrowUpRight size={10} />
             </a>
+          ) : (
+            <div
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium flex-shrink-0 transition-all duration-300"
+              style={{
+                background: isOpen ? "var(--primary)" : "var(--icon-badge-bg)",
+                color: isOpen ? "var(--primary-foreground)" : "var(--tag-text)",
+                fontFamily: "'Fira Code', monospace",
+              }}
+            >
+              {project.badge.icon}
+              {project.badge.label}
+            </div>
           )}
 
           {/* Toggle indicator */}
