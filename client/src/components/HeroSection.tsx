@@ -4,7 +4,7 @@
    Dot-grid background, vertical green rule, word-by-word fade-up
    ============================================================ */
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Globe, Mail, ArrowDown, Palette, Play, Pause } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Palette, Play, Pause, SkipForward } from "lucide-react";
 import { useAudio } from "../contexts/AudioContext";
 
 import HERO_IMAGE from "@/assets/profile.jpg";
@@ -14,7 +14,7 @@ const words = ["Builder.", "Analyst.", "Developer."];
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
-  const { isPlaying, togglePlay, currentTime, duration, seek } = useAudio();
+  const { isPlaying, togglePlay, currentTime, duration, seek, nextTrack, track } = useAudio();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -172,14 +172,22 @@ export default function HeroSection() {
                 >
                   {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
                 </button>
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium tracking-tight" style={{ color: "var(--heading)" }}>
-                    I Thought The Future Would Be Cooler
+                <div className="flex flex-col flex-1 min-w-0">
+                  <span className="text-sm font-medium tracking-tight truncate" style={{ color: "var(--heading)" }}>
+                    {track.title}
                   </span>
                   <span className="text-xs" style={{ color: "var(--body-muted)" }}>
-                    YACHT
+                    {track.artist}
                   </span>
                 </div>
+                <button
+                  onClick={nextTrack}
+                  className="w-8 h-8 flex flex-shrink-0 items-center justify-center rounded-full transition-colors"
+                  style={{ color: "var(--body-muted)" }}
+                  title="Next track"
+                >
+                  <SkipForward size={15} />
+                </button>
               </div>
               
               <div className="flex items-center gap-3 mt-1">
