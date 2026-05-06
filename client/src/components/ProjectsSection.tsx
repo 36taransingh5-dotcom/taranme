@@ -7,13 +7,10 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
 import { ExternalLink, Trophy, Zap, Globe, ArrowUpRight } from "lucide-react";
 
-const HIVE_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663604994993/edvFmTWCitkDz4cU6bGtJf/project-hive-P4C6B6cCkrgtp6F8qSJzdv.webp";
-const AI_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663604994993/edvFmTWCitkDz4cU6bGtJf/project-ai-safety-m4YEgYH6dWwgtqrXmfEB2h.webp";
-const GW_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663604994993/edvFmTWCitkDz4cU6bGtJf/project-groundwire-eo5fFcEyetkbHvNj2Ug97j.webp";
+import HIVE_IMG from "@/assets/logo-hive.png";
+import GW_IMG from "@/assets/logo-groundwire.png";
 import CLAROS_IMG from "@/assets/claros.png";
+import LOGO_CLAROS from "@/assets/logo-claros.png";
 
 const projects = [
   {
@@ -32,7 +29,7 @@ const projects = [
     title: "AI Safety Evaluator",
     subtitle: "LLM Moderation Framework",
     period: "Feb 2026",
-    image: AI_IMG,
+    image: null,
     badge: { icon: <Zap size={12} />, label: "Personal Project" },
     link: null,
     description:
@@ -56,7 +53,7 @@ const projects = [
     title: "Claros",
     subtitle: "Aftermarket Parts AI System",
     period: "2026 - Present",
-    image: CLAROS_IMG,
+    image: LOGO_CLAROS,
     badge: { icon: <Globe size={12} />, label: "Live Platform" },
     link: "https://claros-neon.vercel.app/",
     description:
@@ -238,25 +235,31 @@ function ProjectRow({
               />
 
               <div className="grid md:grid-cols-[1fr_1.4fr] gap-4 lg:gap-6">
-                {/* Image */}
-                <div className="relative w-full aspect-[16/8] rounded-lg overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700"
-                    style={{
-                      transform: isOpen ? "scale(1)" : "scale(1.1)",
-                    }}
-                  />
-                  {/* Subtle gradient */}
+                {/* Logo / Image */}
+                {project.image ? (
                   <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, color-mix(in oklch, var(--primary) 10%, transparent) 0%, transparent 50%)",
-                    }}
-                  />
-                </div>
+                    className="relative w-full aspect-[16/8] rounded-lg overflow-hidden flex items-center justify-center p-6"
+                    style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="max-w-full max-h-full object-contain transition-transform duration-700"
+                      style={{
+                        transform: isOpen ? "scale(1)" : "scale(0.95)",
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="relative w-full aspect-[16/8] rounded-lg flex items-center justify-center"
+                    style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
+                  >
+                    <span className="text-4xl font-['Fraunces'] font-bold opacity-10" style={{ color: "var(--heading)" }}>
+                      {project.title}
+                    </span>
+                  </div>
+                )}
 
                 {/* Content text */}
                 <div className="flex flex-col gap-3 justify-center">
