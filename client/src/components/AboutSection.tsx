@@ -206,7 +206,7 @@ export default function AboutSection() {
                 <ul className="flex flex-col gap-3">
                   {[
                     "Young Entrepreneurs Bootcamp",
-                    "Accenture NA — Product Design",
+                    "Accenture North America — Product Design",
                     "Python and AI Summer Camp",
                     "Intro to UX Design",
                     "On-Premise Sales Virtual Experience"
