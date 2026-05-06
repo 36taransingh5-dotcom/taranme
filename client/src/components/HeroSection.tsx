@@ -116,19 +116,7 @@ export default function HeroSection() {
                 fontFamily: "'Outfit', sans-serif",
               }}
             >
-              Software engineer focused on shipping robust,{" "}
-              <span 
-                className="inline-block align-middle mx-1 w-16 h-[1.3em] overflow-hidden rounded-full shadow-sm"
-                style={{ border: "1px solid var(--border)" }}
-              >
-                <img 
-                  src={HERO_IMAGE} 
-                  className="w-full h-full object-cover" 
-                  style={{ objectPosition: "center 30%" }}
-                  alt="abstract" 
-                />
-              </span>{" "}
-              production-ready applications. Whether I'm architecting scalable backend systems or building AI-powered platforms, I write clean, resilient code to solve hard engineering problems.{" "}
+              Software engineer focused on shipping robust, production-ready applications. Whether I'm architecting scalable backend systems or building AI-powered platforms, I write clean, resilient code to solve hard engineering problems.{" "}
               <span className="font-light opacity-75">
                 And unlike most engineers I can actually design.
               </span>
