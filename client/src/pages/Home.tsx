@@ -1,25 +1,16 @@
-/* ============================================================
-   DESIGN: Swiss Editorial / Structured Light
-   Home: assembles all sections in order with Navbar
-   ============================================================ */
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import SkillsSection from "@/components/SkillsSection";
-import ContactSection from "@/components/ContactSection";
-
-export default function Home() {
-  return (
-    <div className="min-h-screen" style={{ background: "oklch(0.985 0.005 85)" }}>
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <ContactSection />
-    </div>
-  );
-}
+import { useEffect, useState } from "react";
+import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail, Menu, X } from "lucide-react";
+const projects=[
+{n:"01",name:"Parch",type:"Autonomous procurement",copy:"An agent that finds suppliers, verifies them, and places orders end to end.",stack:"TypeScript · Next.js · Vercel",tone:"lime",href:"https://github.com/36taransingh5-dotcom"},
+{n:"02",name:"Velos",type:"Agent payment infrastructure",copy:"Approve, deny, or cap every AI-agent spend before money moves.",stack:"TypeScript · Stripe · MCP",tone:"dark",href:"https://github.com/36taransingh5-dotcom"},
+{n:"03",name:"Atlas",type:"Platform as a service",copy:"Pack, deploy, HTTPS, logs, and rollback—built from scratch in one command.",stack:"Java · Docker · Linux",tone:"sand",href:"https://github.com/36taransingh5-dotcom"},
+{n:"04",name:"Adforge",type:"Generative advertising",copy:"Turn a product link into short, on-brand ads trained on real reviews.",stack:"Next.js · fal · React",tone:"orange",href:"https://adforge-pearl.vercel.app"}];
+const more=[["North Star","Turns an NHS letter into a shared family to-do list.","https://north-star-ruddy.vercel.app"],["Hive","Southampton’s AI community and events platform.","https://sotonhive.tech"],["Claros","Photo-based car-part identification for a real shop.","https://claros-neon.vercel.app"],["ArmForge","Chooses and benchmarks the fastest way to run an LLM on ARM.","https://github.com/36taransingh5-dotcom/armForge"]];
+export default function Home(){const[open,setOpen]=useState(false);useEffect(()=>{const items=document.querySelectorAll(".reveal");const observer=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("shown")),{threshold:.12});items.forEach(i=>observer.observe(i));return()=>observer.disconnect()},[]);const go=()=>setOpen(false);return <div className="site-shell">
+<header className="topbar"><a className="wordmark" href="#top">Taran<span>™</span></a><nav className={open?"nav open":"nav"}><a onClick={go} href="#work">Projects</a><a onClick={go} href="#experience">Experience</a><a onClick={go} href="#about">About</a><a onClick={go} className="pill" href="mailto:tps1g25@soton.ac.uk">Get in touch <ArrowUpRight size={15}/></a></nav><button className="menu" onClick={()=>setOpen(!open)} aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button></header>
+<main id="top"><section className="hero"><div className="hero-copy reveal"><div className="overline"><i/> Computer Science student · Southampton</div><h1>I study computer science.<br/><em>I ship what I learn.</em></h1><div className="hero-lower"><p>I’m Taran, a CS student exploring AI agents, infrastructure, and product engineering through projects used by real people.</p><a className="round-link" href="#work"><span>See projects</span><ArrowDownRight/></a></div></div><div className="hero-art" aria-hidden="true"><div className="sun"/><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="art-card c1"><small>01 / STUDY</small><strong>BSc Computer<br/>Science</strong></div><div className="art-card c2"><small>02 / NEXT</small><strong>Seeking 2027<br/>internships</strong></div><span className="mono-note">SOUTHAMPTON · UK</span></div></section>
+<section className="proof"><div><b>1st</b><span>Agentic commerce<br/>400 builders</span></div><div><b>12+</b><span>Projects shipped<br/>across the stack</span></div><div><b>2</b><span>Internships<br/>before year two</span></div><div><b>2:1</b><span>Current grade<br/>class of 2028</span></div></section>
+<section id="work" className="section work"><div className="section-heading reveal"><span>01 / Selected projects</span><h2>Learning by building.</h2><p>Coursework taught me the foundations. These projects are where I test them against harder, messier problems.</p></div><div className="project-grid">{projects.map(p=><a key={p.name} href={p.href} target="_blank" rel="noreferrer" className={`project-card ${p.tone} reveal`}><div className="project-top"><span>{p.n}</span><span>{p.type}</span><ArrowUpRight/></div><div className="project-graphic"><span>{p.name}</span><i>{p.name.slice(0,2).toUpperCase()}</i></div><div className="project-bottom"><div><h3>{p.name}</h3><p>{p.copy}</p></div><small>{p.stack}</small></div></a>)}</div><div className="more-work reveal"><p className="eyebrow">More things I’ve built</p>{more.map(([name,desc,href],i)=><a key={name} href={href} target="_blank" rel="noreferrer"><span>0{i+5}</span><h3>{name}</h3><p>{desc}</p><ArrowUpRight/></a>)}</div></section>
+<section id="experience" className="section experience"><div className="section-heading light reveal"><span>02 / Experience</span><h2>Learning beyond<br/>the lecture hall.</h2></div><div className="timeline reveal"><article><time>Jun — Sep 2026</time><div><h3>Project Data Support Intern</h3><b>Fiander ETL · Southampton</b><p>Migrating and restructuring client data across systems, with Excel and SQL cleansing pipelines.</p></div></article><article><time>Mar 2026</time><div><h3>Software Developer Intern</h3><b>Film Finder · Barclays Eagle Labs / Sky-backed</b><p>Shipped on an app with 80+ daily active users across SwiftUI, Firebase, third-party APIs, and data pipelines.</p></div></article><article><time>Jan 2024 — Jan 2026</time><div><h3>Developer & Designer</h3><b>Matek Innovative Solutions</b><p>Owned the company’s technical surface and built Claros, an AI parts-identification system, plus internal automation.</p></div></article></div></section>
+<section id="about" className="section about"><p className="eyebrow reveal">03 / About</p><div className="about-grid reveal"><h2>Curious about the whole system—not just my layer.</h2><div><p>I’m studying Computer Science at the University of Southampton, currently on track for a 2:1. Outside class, I build to understand how ideas become dependable software—from product thinking and interface design to backend systems and deployment.</p><div className="capabilities"><span>AI systems</span><span>Agentic workflows</span><span>Infrastructure</span><span>Cybersecurity</span><span>Product engineering</span><span>UI / UX</span></div></div></div><div className="awards reveal"><p className="eyebrow">Selected recognition</p><div><b>1st place overall</b><span>Agentic Commerce Hackathon</span></div><div><b>fal.ai track winner</b><span>Tech Europe × VEED</span></div><div><b>Best use of Gemini API</b><span>SotonHack 2026</span></div><div><b>Impact Lab grant</b><span>University of Southampton</span></div></div></section>
+<section className="contact"><p className="eyebrow reveal">04 / What’s next</p><div className="contact-main reveal"><h2>Looking for a<br/>2027 internship.</h2><a href="mailto:tps1g25@soton.ac.uk">Get in touch <ArrowUpRight/></a></div><footer><span>© {new Date().getFullYear()} Taran Pal Singh · Southampton, UK</span><div><a href="https://github.com/36taransingh5-dotcom" target="_blank" rel="noreferrer"><Github/> GitHub</a><a href="https://linkedin.com/in/taran-pal-singh" target="_blank" rel="noreferrer"><Linkedin/> LinkedIn</a><a href="mailto:tps1g25@soton.ac.uk"><Mail/> Email</a></div></footer></section></main></div>}
